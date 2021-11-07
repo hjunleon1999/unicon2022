@@ -1,0 +1,67 @@
+@import '../../styles/colors';
+
+.topbarContainer {
+  //height: 50px;
+  width: 100%;
+  background-color: $d-gray-1;
+  color: $white-1;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 2px 4px 8px 6px rgba(0,0,0,0.5);
+}
+
+.topbarLeft {
+  flex: 3;
+}
+
+.logo {
+  font-size: 24px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.topbarCenter {
+  flex: 5;
+}
+
+
+
+.topbarRight {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 64px;
+  color: white;
+}
+
+.topbarLink {
+  color: inherit;
+  margin-right: 10px;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  &.button {
+    background-color: $orange-1;
+    &:hover{
+      background-color: lighten($orange-1,5%);
+    }
+  }
+}
+
+.topbarIcons {
+  display: flex;
+}
+
+@media screen and (max-width: 768px)  {
+  .topbarLink{
+    display: none;
+  }
+}

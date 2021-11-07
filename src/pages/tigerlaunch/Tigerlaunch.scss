@@ -1,0 +1,88 @@
+@import '../../styles/colors';
+@import '../../styles/sizes';
+
+.tigerlaunch {
+
+    .subTitle {
+        font-size: $h1-2-5-fs;
+        font-family: 'RaidenShogun'
+    }
+
+    .infoLayer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // flex-direction: column;
+        text-align: center;
+        color: $orange-2;
+        padding: 64px;
+
+        .infoSection {
+
+            display: flex;
+            height: 70%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: $maroon;
+            background: $orange-2;
+            border-radius: 12px;
+            width: 40%;
+            min-width: 30%;
+            margin: 24px;
+            .info{
+                line-height: 24px;
+            }
+            
+        }
+
+        .title {
+            font-family: "RaidenShogunTit";
+            padding: 16px;
+        }
+
+        .header,
+        .info {
+            width: 80%;
+        }
+
+        .header {
+            font-size: $h1-5-fs;
+            margin: 16px;
+        }
+
+        .subHeader {
+            font-size: $h2-fs;
+        }
+
+        .info {
+            margin: 8px;
+        }
+
+        .prizeRow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            width: 80%;
+            position: relative;
+
+            .prizeCol {
+                height: 100%;
+                width: 100%;
+                text-align: center;
+
+                .info {
+                    margin: auto;
+                    font-size: $h2-fs;
+                    padding: 8px;
+                }
+
+                .prizeImg,
+                img {
+                    height: 100%; //480px;
+                }
+            }
+        }
+    }
+}
