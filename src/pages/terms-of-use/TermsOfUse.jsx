@@ -4,10 +4,10 @@ import Particles from "react-tsparticles";
 import TicketOverlay from "../../components/ticketOverlay/TicketOverlay";
 import "./TermsOfUse.scss";
 
-export default function TermsOfUsePage() {
+export default function TermsOfUsePage({ win_width, win_height, is_mobile }) {
   return (
     <div id="termsOfUsePage">
-      <Topbar />
+      <Topbar is_mobile={is_mobile}/>
       <div className="termsOfUseContent">
         <div className="termsOfUseContent__text">
           <div className="title">TERMS OF SERVICE</div>

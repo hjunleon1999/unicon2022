@@ -24,6 +24,18 @@
     align-items: center;
     color: $beige-1;
     // height: 100%;
+    &.mobile{
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-end;
+        .stats{
+            margin: 24px 0px;
+            .statsIcon{
+                height: 80%;
+                margin: 16px;
+            }
+        }
+    }
     .stats{
         width:100%;
         // height: 100%;

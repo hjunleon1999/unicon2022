@@ -2,6 +2,7 @@ import "./PulseStars.scss"
 
 export default function PulseStars(props) {
   let num = props.nums || 5;
+  let is_mobile = props.is_mobile || false;
   let styles = props.stylelist || null; //if null, randomly put those stars everywhere
 //   console.log(styles)
   const StarSvg = (props) => {
@@ -29,6 +30,7 @@ export default function PulseStars(props) {
                 style={{
                   animationDelay: animStart,
                   animationDuration: animDuration,
+                  animationPlayState: is_mobile?'paused':''
                 }}
               >
                 <image

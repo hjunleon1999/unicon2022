@@ -63,14 +63,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50%;
+            // height: 50%;
             width: 80%;
             position: relative;
-
+            margin: 16px 0px;
             .prizeCol {
-                height: 100%;
+                // height: 100%;
                 width: 100%;
                 text-align: center;
+                flex: 1;
 
                 .info {
                     margin: auto;
@@ -80,9 +81,33 @@
 
                 .prizeImg,
                 img {
-                    height: 100%; //480px;
+                    width: 100%; //480px;
                 }
             }
         }
     }
+}
+
+.mobile{
+    .infoLayer{
+        padding: 0px;
+        flex-direction: column;
+        padding: 16px;
+
+        .infoSection{
+            width: 80%;
+        }
+    }
+    .info{
+        // font-size: 4vmin !important;
+    }
+    // .prizeCol{
+    //     height:33%;
+    // }
+    .prizeRow{
+        width: 90% !important;
+    }
+    // .prizeImg{
+    //     width: 33% !important;
+    // }
 }

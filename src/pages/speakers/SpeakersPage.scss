@@ -46,9 +46,24 @@ $speaker-height:300px;
     background: $d-gray-2;
     color: $white-1;
     overflow-y: scroll;
+    
     .SpeakerPage__content{
         padding: 128px;
 
+    }
+    &.mobile{
+        .SpeakerPage__content{
+            padding: 0px;
+    
+        }
+        .profileDetails{
+            padding: 16px 8px;
+        }
+        .grid-row{
+            .grid-item{
+                
+            }
+        }
     }
     .text,
     .tag,.link {
@@ -67,10 +82,12 @@ $speaker-height:300px;
         font-size: $n-plus-fs;
     }
     .profileDetails {
-        height: 360px;
-        display: flex;
-
-
+        // min-height: 360px;
+        margin: 24px 0px;
+        .profileDetails__row{
+            height: 100%;
+            width: 100%;
+        }
 
         .profileDetails__lcol,
         .profileDetails__rcol {
@@ -83,15 +100,19 @@ $speaker-height:300px;
             justify-content: center;
             .profilePic {
                 position: relative;
-                height: 270px;
-                width: 270px;
+                height:75%; //270px;
+                // width: 75%;//270px;
+                div{
+                    display: flex;
+                    align-items: center;
+                }
                 .profilePic__ring{
                     height: 100%;
                     width:100%;
                 }
                 .profilePic__img {
                     height: 100%;
-                    width: 100%;
+                    // width: 100%;
                     cursor:pointer;
                     img {
                         position: absolute;
@@ -107,6 +128,7 @@ $speaker-height:300px;
         }
 
         .profileDetails__rcol {
+            margin-left: 16px;
             flex: 2;
             .username{
                 font-weight: 300;
@@ -176,7 +198,7 @@ $speaker-height:300px;
             -webkit-flex-direction: row;
             -ms-flex-direction: row;
             flex-direction: row;
-            margin-bottom: 28px;
+            // margin-bottom: 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;

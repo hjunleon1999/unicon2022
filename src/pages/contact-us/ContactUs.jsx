@@ -35,7 +35,8 @@ const contactInfo = [
   },
 ];
 
-export default function ContactUsPage() {
+export default function ContactUsPage({ win_width, win_height, is_mobile }) {
+  console.log(`is_mobile: ${is_mobile}`)
   const ContactInfo = (props) => {
     // contactInfo;
     let val = props.val;
@@ -46,7 +47,12 @@ export default function ContactUsPage() {
         </div>
         <div className="contactText">
           <div className="header">{val.header}</div>
-          <a className="link" onClick={()=>{window.open(val.link)}}>
+          <a
+            className="link"
+            onClick={() => {
+              window.open(val.link);
+            }}
+          >
             {val.text}
           </a>
         </div>
@@ -55,9 +61,10 @@ export default function ContactUsPage() {
   };
 
   return (
-    <div id="contactPage">
-      <Topbar />
-      <Particles
+    <div id="contactPage" className={`${is_mobile?"mobile":""}`}>
+      <Topbar is_mobile={is_mobile} />
+      {!is_mobile && (
+        <Particles
           options={{
             fpsLimit: 30,
             fullScreen: { enable: true },
@@ -88,6 +95,8 @@ export default function ContactUsPage() {
             },
           }}
         />
+      )}
+
       <div className="venue">
         {/* <div className="contactForm">
             <div className="header">
@@ -96,9 +105,7 @@ export default function ContactUsPage() {
                 </div>
             </div>
           </div> */}
-        <div className="title">
-            Venue
-        </div>
+        <div className="title">Venue</div>
         <div className="directions">
           <img
             src={"/assets/images/maps/image_2021-11-02_22-54-02.png"}
@@ -108,19 +115,33 @@ export default function ContactUsPage() {
           />
         </div>
       </div>
-      <div className="contactInfos">
-        <div className="contactRow">
-          {contactInfo.slice(0, 2).map((val) => (
-            <ContactInfo val={val} />
+      {!is_mobile ? (
+        <div className="contactInfos">
+          <div className="contactRow">
+            {contactInfo.slice(0, 2).map((val) => (
+              <ContactInfo val={val} />
+            ))}
+          </div>
+          <div className="contactRow">
+            {contactInfo.slice(2, 4).map((val) => (
+              <ContactInfo val={val} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="contactInfos">
+          {contactInfo.slice(0, 4).map((val) => (
+            <div className="contactRow">
+              <ContactInfo val={val} />
+            </div>
           ))}
         </div>
-        <div className="contactRow">
-        {contactInfo.slice(2, 4).map((val) => (
-            <ContactInfo val={val} />
-          ))}
-        </div>
-      </div>
-      <div className="footerWrap" style={{ marginTop: "64px", position: "relative" }}>
+      )}
+
+      <div
+        className="footerWrap"
+        style={{ marginTop: "64px", position: "relative" }}
+      >
         <Footer />
       </div>
       <TicketOverlay />

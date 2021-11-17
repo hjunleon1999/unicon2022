@@ -1,5 +1,5 @@
 import Topbar from "../../components/topbar/Topbar";
-import TicketOverlay from "../../components/ticketOverlay/TicketOverlay"
+import TicketOverlay from "../../components/ticketOverlay/TicketOverlay";
 import Footer from "../home/footer/Footer";
 import Particles from "react-tsparticles";
 import "./Pricing.scss";
@@ -15,7 +15,7 @@ let benefits = [
   "Selected Speakers Live Streaming from a Physical Venue",
 ];
 
-export default function Pricing() {
+export default function Pricing({ win_width, win_height, is_mobile }) {
   const [text, setText] = useState("Are you looking for");
 
   const Benefits = () => {
@@ -52,7 +52,10 @@ export default function Pricing() {
 
   const PricingSection = () => {
     return (
-      <div className="pricing" style={{ zIndex: "1" }}>
+      <div
+        style={{ zIndex: "1" }}
+        className={`pricing ${is_mobile ? "mobile" : ""}`}
+      >
         <div className="title">Ticket Pricing</div>
 
         <div className="subTitle">Transform Ideas into Action</div>
@@ -103,43 +106,49 @@ export default function Pricing() {
   return (
     <div id="pricingPage">
       <div id="pricingContent">
-        <Topbar />
-        <Particles
-          style={{ height: "100%", zIndex: "-1" }}
-          options={{
-            fpsLimit: 30,
-            fullScreen: { enable: true },
-            particles: {
-              color: {
-                value: "#F7904C",
-              },
-              links: {
-                color: "#F7904C",
-                distance: 200,
-                enable: true,
-                opacity: 0.5,
-                width: 1,
-              },
-              number: {
-                value: 35,
-                density: {
+        <Topbar is_mobile={is_mobile} />
+        {!is_mobile && (
+          <Particles
+            style={{ height: "100%", zIndex: "-1" }}
+            options={{
+              fpsLimit: 30,
+              fullScreen: { enable: true },
+              particles: {
+                color: {
+                  value: "#F7904C",
+                },
+                links: {
+                  color: "#F7904C",
+                  distance: 200,
                   enable: true,
-                  value_area: 1000,
+                  opacity: 0.5,
+                  width: 1,
+                },
+                number: {
+                  value: 35,
+                  density: {
+                    enable: true,
+                    value_area: 1000,
+                  },
+                },
+                move: {
+                  enable: true,
+                  speed: 2.5,
+                  direction: "top",
+                  outMode: "bounce",
                 },
               },
-              move: {
-                enable: true,
-                speed: 2.5,
-                direction: "top",
-                outMode: "bounce",
-              },
-            },
-          }}
-        />
+            }}
+          />
+        )}
+
         <BuyNow />
         <PricingSection />
       </div>
-      <div className="footerWrap" style={{ marginTop: "128px", position: "relative" }}>
+      <div
+        className="footerWrap"
+        style={{ marginTop: "128px", position: "relative" }}
+      >
         <Footer />
       </div>
       <TicketOverlay />

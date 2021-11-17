@@ -70,7 +70,7 @@ const InstaStoryCircle = () => {
   );
 };
 
-export default function SpeakersPage() {
+export default function SpeakersPage({ win_width, win_height, is_mobile }) {
   const [year, setYear] = useState(2021);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -124,7 +124,7 @@ export default function SpeakersPage() {
               ) : (
                 ""
               )}
-              {item.info ? (
+              {!is_mobile && item.info ? (
                 <div className="grid-item__info__info">{item.info}</div>
               ) : (
                 ""
@@ -145,7 +145,7 @@ export default function SpeakersPage() {
       }
     }
     return (
-      <div className={"grid-row"}>
+      <div className={"grid-row"} style={{maxHeight:(win_width/3), marginBottom:is_mobile?"0px":"28px"}}>
         {vals.map((item, index) => (
           <GridItem key={index} item={item} />
         ))}
@@ -209,47 +209,102 @@ export default function SpeakersPage() {
 
   return (
     <>
-      <Topbar />
-      <div id="SpeakerPage">
+      <Topbar is_mobile={is_mobile} />
+      <div id="SpeakerPage" className={`${is_mobile ? "mobile" : ""}`}>
         <div className="SpeakerPage__content">
-          <div className="profileDetails">
-            <div className="profileDetails__lcol">
-              <ProfilePic />
-            </div>
-            <div className="profileDetails__rcol">
-              <h2 className="username">Our UNICON Speakers</h2>
-              <div className="text">
-                <span style={{ fontWeight: "500" }}>100+</span> Profiles!
+          {!is_mobile ? (
+            <div
+              className="profileDetails"
+              style={{
+                display: "flex",
+              }}
+            >
+              <div className="profileDetails__lcol">
+                <ProfilePic />
               </div>
-              <h2 className="text" style={{ fontWeight: "700" }}>
-                NES UNICON 2022
-              </h2>
-              <div className="text selfLabel">Entrepreneur</div>
-              <div className="text">
-                Asia's Largest & Craziest Entrepreneurship & Tech Student
-                Conference, from 15th to 16th January 2022!
-              </div>
-              <div className="text">
-                By{" "}
-                <span
-                  className="tag noselect"
+              <div className="profileDetails__rcol">
+                <h2 className="username">Our UNICON Speakers</h2>
+                <div className="text">
+                  <span style={{ fontWeight: "500" }}>100+</span> Profiles!
+                </div>
+                <h2 className="text" style={{ fontWeight: "700" }}>
+                  NES UNICON 2022
+                </h2>
+                <div className="text selfLabel">Entrepreneur</div>
+                <div className="text">
+                  Asia's Largest & Craziest Entrepreneurship & Tech Student
+                  Conference, from 15th to 16th January 2022!
+                </div>
+                <div className="text">
+                  By{" "}
+                  <span
+                    className="tag noselect"
+                    onClick={() => {
+                      window.open(uniconInsta);
+                    }}
+                  >
+                    @nusentresoc
+                  </span>
+                </div>
+                <a
+                  className="link noselect"
                   onClick={() => {
-                    window.open(uniconInsta);
+                    window.open("https://linktr.ee/nesunicon");
                   }}
                 >
-                  @nusentresoc
-                </span>
+                  linktr.ee/nesunicon
+                </a>
               </div>
-              <a
-                className="link noselect"
-                onClick={() => {
-                  window.open("https://linktr.ee/nesunicon");
+            </div>
+          ) : (
+            <div className="profileDetails">
+              <div
+                className="profileDetails__row"
+                style={{
+                  display: "flex",
                 }}
               >
-                linktr.ee/nesunicon
-              </a>
+                <div className="profileDetails__lcol">
+                  <ProfilePic />
+                </div>
+                <div className="profileDetails__rcol">
+                  <h2 className="username">Our UNICON Speakers</h2>
+                </div>
+              </div>
+              <div className="profileDetails__row">
+                <div className="text">
+                  <span style={{ fontWeight: "500" }}>100+</span> Profiles!
+                </div>
+                <h2 className="text" style={{ fontWeight: "700" }}>
+                  NES UNICON 2022
+                </h2>
+                <div className="text selfLabel">Entrepreneur</div>
+                <div className="text">
+                  Asia's Largest & Craziest Entrepreneurship & Tech Student
+                  Conference, from 15th to 16th January 2022!
+                </div>
+                <div className="text">
+                  By{" "}
+                  <span
+                    className="tag noselect"
+                    onClick={() => {
+                      window.open(uniconInsta);
+                    }}
+                  >
+                    @nusentresoc
+                  </span>
+                </div>
+                <a
+                  className="link noselect"
+                  onClick={() => {
+                    window.open("https://linktr.ee/nesunicon");
+                  }}
+                >
+                  linktr.ee/nesunicon
+                </a>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* <div className="yearSelectionWrap"> */}
           <div className="yearSelection">

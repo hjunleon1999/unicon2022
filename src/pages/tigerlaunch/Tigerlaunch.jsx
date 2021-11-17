@@ -9,7 +9,7 @@ import Footer from "../home/footer/Footer";
 import { t_l_timeline } from "./TigerLaunchConstants";
 import "./Tigerlaunch.scss";
 
-export default function TigerLaunchPage() {
+export default function TigerLaunchPage({ win_width, win_height, is_mobile }) {
   const [curPage, setCurPage] = useState(0);
   const parallaxRef = useRef(); //true
   const maxPages = 7;
@@ -22,8 +22,8 @@ export default function TigerLaunchPage() {
     parallaxRef.current.scrollTo(curPage);
   };
   return (
-    <div id="tigerlaunch-page">
-      <Topbar />
+    <div id="tigerlaunch-page" className={`${is_mobile ? "mobile" : ""}`}>
+      <Topbar is_mobile={is_mobile}/>
       <div className="tigerlaunch">
         <Parallax
           pages={maxPages}
@@ -39,38 +39,40 @@ export default function TigerLaunchPage() {
               background: "#2E383B",
             }}
           >
-            <Particles
-              style={{ height: "100%" }}
-              options={{
-                fpsLimit: 30,
-                fullScreen: { enable: true },
-                particles: {
-                  color: {
-                    value: "#F7904C",
-                  },
-                  links: {
-                    color: "#F7904C",
-                    distance: 150,
-                    enable: true,
-                    opacity: 0.5,
-                    width: 1,
-                  },
-                  number: {
-                    value: 35,
-                    density: {
+            {!is_mobile && (
+              <Particles
+                style={{ height: "100%" }}
+                options={{
+                  fpsLimit: 30,
+                  fullScreen: { enable: true },
+                  particles: {
+                    color: {
+                      value: "#F7904C",
+                    },
+                    links: {
+                      color: "#F7904C",
+                      distance: 150,
                       enable: true,
-                      value_area: 1000,
+                      opacity: 0.5,
+                      width: 1,
+                    },
+                    number: {
+                      value: 35,
+                      density: {
+                        enable: true,
+                        value_area: 1000,
+                      },
+                    },
+                    move: {
+                      enable: true,
+                      speed: 2.5,
+                      direction: "top",
+                      outMode: "bounce",
                     },
                   },
-                  move: {
-                    enable: true,
-                    speed: 2.5,
-                    direction: "top",
-                    outMode: "bounce",
-                  },
-                },
-              }}
-            />
+                }}
+              />
+            )}
           </ParallaxLayer>
           <ParallaxLayer
             sticky={{
@@ -149,7 +151,11 @@ export default function TigerLaunchPage() {
             factor={1.5}
             className={"infoLayer"}
           >
-            <TimelineWidget timeline={t_l_timeline} style={{ width: "80%" }} />
+            <TimelineWidget
+              timeline={t_l_timeline}
+              style={{ width: "90%" }}
+              is_mobile={is_mobile}
+            />
           </ParallaxLayer>
           <ParallaxLayer
             sticky={{

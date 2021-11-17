@@ -8,7 +8,7 @@ import { useSpring, animated } from "react-spring";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "./Agenda.scss";
 
-export default function Agenda() {
+export default function Agenda({ win_width, win_height, is_mobile }) {
   const [day, setDay] = useState(1);
   const parallaxRef = useRef(); //true
 
@@ -45,7 +45,7 @@ export default function Agenda() {
 
   return (
       <>
-    <Topbar />
+    <Topbar is_mobile={is_mobile}/>
     <div id="agendaPage">
       
       <Parallax pages={2.5} className="parallax-scroll-hook" ref={parallaxRef}>

@@ -8,10 +8,42 @@
     height: 1920px;
     background: url("../../assets/images/mainBackdrop.png");
 }
+.parallax-scroll-hook{
+    &.mobile > div{
+        height: calc(7.95 * 100vh) !important;
+    }
+    
+}
+.mobile{
+        
+    .celebrate, .whatsNew{
+        width: 90%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $white-1;
+        .title{
+            margin: 12px;
+        }
+        .info{
+            font-size: $n-plus-fs;
+            width: 90%;
+            line-height: 24px;
+        }
+    }
+    .cardRow{
+        width: 95%;
+        height: 480px;
+        margin: 16px 32px;
+        
+    }
+}
 .button{
     text-align: center;
     background-color: $orange-1;
-    padding: 8px;
+    padding: 4px;
     border-radius: 6px;
     width: 100px;
     height: 40px;
@@ -26,7 +58,7 @@
 }
 .frontPanel {
     width: 40%;
-    min-width: 640px;
+    // min-width: 640px;
     // height: 90vh;
     margin-left: 64px;
     z-index: 999;
@@ -34,6 +66,14 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    &.center{
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 24px;
+        margin-left: 0px;
+        // min-width: 640px;
+    }
     div{
         margin: 4px 0px;
     }
@@ -138,6 +178,7 @@
 .particleBackground{
     background: $d-gray-2;
 }
+
 .title{
     font-size: $h1-fs - 16px;
     font-family: "TwitchyTv";

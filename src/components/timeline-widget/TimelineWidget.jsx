@@ -3,6 +3,7 @@ import "./TimelineWidget.scss";
 export default function TimelineWidget(props) {
   let timeList = props.timeline || [];
     let styles = props.style || {}
+  let is_mobile = props.is_mobile || false;
 
   const TimeItem = (props) => {
     let date = props.val.date || "";
@@ -14,7 +15,7 @@ export default function TimelineWidget(props) {
     return (
       <article
         className={`twae-timeline-entry ${
-          index % 2 == 0 ? "twae-right-aligned" : "twae-left-aligned"
+          !is_mobile && index % 2 == 1 ? "twae-left-aligned" : "twae-right-aligned"
         }`}
       >
         <div className="twae-timeline-entry-inner">
@@ -43,9 +44,9 @@ export default function TimelineWidget(props) {
   };
 
   return (
-    <div className="timelineContainer" style={styles}>
-      <div className="twae-vertical twae-wrapper twae-centered">
-        <div className="twae-timeline-centered twae-timeline-sm twae-line">
+    <div className={`timelineContainer ${is_mobile ? "mobile" : ""}`} style={styles}>
+      <div className={`twae-vertical twae-wrapper twae-centered`}>
+        <div className={`twae-timeline-centered twae-timeline-sm twae-line`}>
           <TimeList />
         </div>
       </div>

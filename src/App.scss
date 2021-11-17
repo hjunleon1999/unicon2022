@@ -63,3 +63,25 @@ div::-webkit-scrollbar-track {
 div::-webkit-scrollbar-thumb {
   background-color: #fff !important;
 }
+
+.mobile{
+        
+  // line-height: 16px;
+  .title{
+      font-size: 7.5vw !important;//2.5rem;
+  }
+  .header{
+    font-size: 3.0vh !important;
+  }
+  .subTitle{
+      font-size: 2.0vh !important;//1.2rem;
+  }
+  .info{
+    font-size: 3vmin !important;
+    line-height: 16px !important;
+  }
+  .subText,.section{
+      font-size: 4vmin !important;
+      line-height: 16px;
+  }
+}

@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Agenda from "./pages/agenda/Agenda"
@@ -17,35 +18,59 @@ import {
   Redirect,
 } from "react-router-dom";
 function App() {
+  // https://stackoverflow.com/questions/39435395/reactjs-how-to-determine-if-the-application-is-being-viewed-on-mobile-or-desktohttps://stackoverflow.com/questions/39435395/reactjs-how-to-determine-if-the-application-is-being-viewed-on-mobile-or-deskto
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const [isMobile, setIsMobile] = useState(false)
+
+  function handleWindowSizeChange() {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight)
+  }
+
+  useEffect(()=>{
+    console.log(`isMobile? ${isMobile}`)
+    setIsMobile(width <= 768);
+  },[height,width])
+
+  useEffect(() => {
+      window.addEventListener('resize', handleWindowSizeChange);
+      return () => {
+          window.removeEventListener('resize', handleWindowSizeChange);
+      }
+  }, []);
+
+  
+
   return (
     <Router>
       <Switch>
         <Route exact path = "/">
-          <Home />
+          <Home win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/about">
-          <About />
+          <About win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/agenda">
-          <Agenda />
+          <Agenda win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/pricing">
-          <Pricing />
+          <Pricing win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/tigerlaunch">
-          <TigerLaunchPage />
+          <TigerLaunchPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/contact">
-          <ContactUsPage />
+          <ContactUsPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/speakers">
-          <SpeakersPage />
+          <SpeakersPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path ="/privacy">
-          <PrivacyPage />
+          <PrivacyPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         <Route path="/terms">
-          <TermsOfUsePage />
+          <TermsOfUsePage win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
         
         <Route path = "/TestShootingStars">

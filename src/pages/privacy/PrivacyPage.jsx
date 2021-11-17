@@ -4,10 +4,10 @@ import Particles from "react-tsparticles";
 import TicketOverlay from "../../components/ticketOverlay/TicketOverlay";
 import "./PrivacyPage.scss";
 
-export default function PrivacyPage() {
+export default function PrivacyPage({ win_width, win_height, is_mobile }) {
   return (
     <div id="privacyPage">
-      <Topbar />
+      <Topbar is_mobile={is_mobile}/>
       <div className="privacyContent">
         <div className="privacyContent__text">
           <div className="title">PRIVACY POLICY</div>

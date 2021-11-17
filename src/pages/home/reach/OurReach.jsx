@@ -32,7 +32,7 @@ let statsList = [
 let statsInfos2021 = [424, 5, 15, 30, 10];
 let statsInfos2022 = [600, 12, 20, 40, 20];
 
-export default function OurReach() {
+export default function OurReach({is_mobile}) {
   const [year, toggleYear] = useState(true);
   const [curYear, setCurYear] = useState(2021);
   const [prevStats, setPrevStats] = useState([0,0,0,0,0]);
@@ -145,7 +145,7 @@ export default function OurReach() {
     <div className="ourReach">
       <div className="title">Our Milestones</div>
       <div className="subtitle">{curYear}</div>
-      <div className="statsWrap">
+      <div className={`statsWrap ${is_mobile?"mobile":""}`}>
         {statsList.map((stat,index) => (
           <Stats
             statsIcon={stat.statsIcon}

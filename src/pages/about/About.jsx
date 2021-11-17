@@ -5,12 +5,13 @@ import "./About.scss";
 import Particles from "react-tsparticles";
 import { Link } from "react-router-dom";
 
-export default function About() {
+export default function About({ is_mobile }) {
   return (
-    <div className="aboutWrap">
-      <Topbar />
-      <Particles
-        style={{height: "100%", position: "relative"}}
+    <div className={`aboutWrap ${is_mobile ? "mobile" : ""}`}>
+      <Topbar is_mobile={is_mobile} />
+      {!is_mobile && (
+        <Particles
+          style={{ height: "100%", position: "relative" }}
           options={{
             fpsLimit: 30,
             fullScreen: { enable: true },
@@ -41,19 +42,33 @@ export default function About() {
             },
           }}
         />
+      )}
+
       <div className="contentWrap">
-        
         <div className="content">
           <div className="title">About UNICON</div>
           <div className="subTitle">
             <div className="tech">TECH</div>
-            <div
-              style={{ borderRight: "4px solid white", height: "32px" }}
-            ></div>
+            {is_mobile ? (
+              <div
+                style={{ borderBottom: "4px solid white", width: "80%" }}
+              ></div>
+            ) : (
+              <div
+                style={{ borderRight: "4px solid white", height: "32px" }}
+              ></div>
+            )}
+
             <div className="entre">ENTREPRENEURSHIP </div>
-            <div
-              style={{ borderLeft: "4px solid white", height: "32px" }}
-            ></div>
+            {is_mobile ? (
+              <div
+                style={{ borderBottom: "4px solid white", width: "80%" }}
+              ></div>
+            ) : (
+              <div
+                style={{ borderRight: "4px solid white", height: "32px" }}
+              ></div>
+            )}
             <div className="biz">BUSINESS</div>
           </div>
           <div className="section">
@@ -87,7 +102,6 @@ export default function About() {
               universities and inspired students to solve real world problems.
             </div>
           </div>
-          
         </div>
 
         <div className="footerWrap">

@@ -3,9 +3,10 @@ import "./ShootingStars.scss";
 import React, { useRef, useState, useEffect } from "react";
 
 export default function ShootingStars(props) {
-  // const canvasRef = useRef();  //ref={canvasRef}
+  const canvasRef = useRef(null);  //ref={canvasRef}
   let shapeNum = props.nums || 5;
   let meteorNum = props.meteorNum || 50;
+  // let is_mobile = props.is_mobile || false;
 //   let isPlay = props.isPlay != null ? props.isPlay : true;
 //   console.log(`isPlay: ${isPlay}`);
   function rand(min, max) {
@@ -165,7 +166,7 @@ export default function ShootingStars(props) {
           timeTarget = Date.now();
         }
       }
-      //   if (isPlay){
+      //   if (!is_mobile){
 
       requestAnimationFrame(render);
       //   }
@@ -180,10 +181,10 @@ export default function ShootingStars(props) {
     window.addEventListener("resize", function () {
       onResize();
     });
-  });
+  },[]);
 
   return (
-    <canvas id="shootingStar" style={{ background: "rgba(0,0,0,0)" }}>
+    <canvas id="shootingStar" ref={canvasRef} style={{ background: "rgba(0,0,0,0)" }}>
       Your browser does not support the HTML canvas tag.
     </canvas>
   );
