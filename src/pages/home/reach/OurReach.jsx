@@ -38,35 +38,34 @@ export default function OurReach({is_mobile}) {
   const [prevStats, setPrevStats] = useState([0,0,0,0,0]);
   const [curStats, setCurStats] = useState(statsInfos2021);
 //   let statinfoEls = [];
+useEffect(() => {
+  if (is_mobile){
+    setCurYear(2022);
+    setPrevStats(statsInfos2021)
+    setCurStats(statsInfos2022)
+  }
+},[]);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      toggleYear(!year);
-      //   let activeList;
-      if (year) {
-        setCurYear(2021);
-        setPrevStats(statsInfos2022)
-        setCurStats(statsInfos2021)
-      } else {
-        setCurYear(2022);
-        setPrevStats(statsInfos2021)
-        setCurStats(statsInfos2022)
-      }
-    }, 3000);
+    if (!is_mobile){
+      const timer = setTimeout(() => {
+        toggleYear(!year);
+        //   let activeList;
+        if (year) {
+          setCurYear(2021);
+          setPrevStats(statsInfos2022)
+          setCurStats(statsInfos2021)
+        } else {
+          setCurYear(2022);
+          setPrevStats(statsInfos2021)
+          setCurStats(statsInfos2022)
+        }
+      }, 3000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   });
-  // useEffect(() => {
-  //   if (year) {
-  //     console.log("2021");
-  //     setPrevStats(statsInfos2022)
-  //     setCurStats(statsInfos2021)
-  //   } else {
-  //     console.log("2022");
-  //     setPrevStats(statsInfos2021)
-  //     setCurStats(statsInfos2022)
-  //   }
-  // }, [year]);
 
+  
   const animateValue = (setState, start, end, duration) => {
     // const step = (timestamp) => {
     //   if (!startTimestamp) startTimestamp = timestamp;

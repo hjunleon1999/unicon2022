@@ -31,6 +31,18 @@ function App() {
   useEffect(()=>{
     console.log(`isMobile? ${isMobile}`)
     setIsMobile(width <= 768);
+    // if (isMobile == true){
+    //   document.addEventListener('touchstart', touchstart);
+    //   document.addEventListener('touchmove', touchmove);
+
+    //   function touchstart(e) {
+    //       e.preventDefault()
+    //   }
+
+    //   function touchmove(e) {
+    //       e.preventDefault()
+    //   }
+    // }
   },[height,width])
 
   useEffect(() => {

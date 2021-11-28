@@ -12,6 +12,11 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
   const [day, setDay] = useState(1);
   const parallaxRef = useRef(); //true
 
+  const just_time = (dt_obj) => {
+    let mins = dt_obj.getMinutes()
+    return `${dt_obj.getHours()}:${mins < 10?"0":""}${mins}`
+  }
+
   const AgendaItem = (props) => {
     const [isExpanded, setExpand] = useState(false);
     let val = props.val;
@@ -22,13 +27,13 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
     let isActive = curObj >= startObj && curObj <= endObj
     return (
       <div
-        className={`agendaItem  ${isActive? "active":""}`}
+        className={`agendaItem  ${isActive? "active":""} `}
         onMouseEnter={() => setExpand(true)}
         onMouseLeave={() => setExpand(false)}
       >
         <div className="agenda-title">{val["topic"]}</div>
         <div className={`agenda-time`}>
-          {val["startTime"]} - {val["endTime"]}
+          {just_time(startObj)} - {just_time(endObj)}
         </div>
         {isExpanded && val["description"] && (
           <div className="description">{val["description"]}</div>
@@ -46,7 +51,7 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
   return (
       <>
     <Topbar is_mobile={is_mobile}/>
-    <div id="agendaPage">
+    <div id="agendaPage" className={`${is_mobile ? "mobile" : ""}`}>
       
       <Parallax pages={2.5} className="parallax-scroll-hook" ref={parallaxRef}>
         <ParallaxLayer
@@ -89,7 +94,8 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
             }}
           />
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={1} factor={1} onClick={() => parallaxRef.current.scrollTo(1)}>
+        {/* onClick={() => parallaxRef.current.scrollTo(1)} */}
+        <ParallaxLayer offset={0} speed={1} factor={1} >
           <div className="agendaWrap">
             <div className="agenda">
               <div className="main-title">UNICON 2022</div>
@@ -121,49 +127,99 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={1} factor={1} onClick={() => parallaxRef.current.scrollTo(0)}>
           <div className="main-title">HIGHLIGHTS FOR UNICON 2022</div>
-          <div className="highlights">
-            <div className="highlight-row">
+          {is_mobile?(
+            <div className={`highlights`}>
+              <div className="highlight-row">
                 <div className="highlight-col">
-                <div className="highlight-icon">
-                    <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  <div className="highlight-icon">
+                      <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">Panel Discussion</div>
+                      <div className="highlight-info">Seed to Unicorn</div>
+                  </div>
                 </div>
-                <div className="highlight-details">
-                    <div className="highlight-header">Panel Discussion</div>
-                    <div className="highlight-info">Seed to Unicorn</div>
-                </div>
-                </div>
+              </div>
+              <div className="highlight-row">
                 <div className="highlight-col">
-                <div className="highlight-icon">
-                    <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  <div className="highlight-icon">
+                      <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">Panel Discussion</div>
+                      <div className="highlight-info">Securing Funding</div>
+                  </div>
                 </div>
-                <div className="highlight-details">
-                    <div className="highlight-header">Panel Discussion</div>
-                    <div className="highlight-info">Securing Funding</div>
+              </div>
+              <div className="highlight-row">
+                <div className="highlight-col">
+                  <div className="highlight-icon">
+                  <i class="fas fa-fire"></i>
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">Keynote Speaker</div>
+                      <div className="highlight-info">Startup to IPO</div>
+                  </div>
                 </div>
+              </div>
+              <div className="highlight-row">
+                <div className="highlight-col">
+                  <div className="highlight-icon">
+                      {/* TO DO: Change to tiger launch */}
+                  <i class="fas fa-fire"></i>   
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">TigerLaunch Singapore</div>
+                      <div className="highlight-info">Big opportunities await</div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div className="highlight-row">
+          ):(
+            <div className={`highlights`}>
+              <div className="highlight-row">
                 <div className="highlight-col">
-                <div className="highlight-icon">
-                <i class="fas fa-fire"></i>
-                </div>
-                <div className="highlight-details">
-                    <div className="highlight-header">Keynote Speaker</div>
-                    <div className="highlight-info">Startup to IPO</div>
-                </div>
+                  <div className="highlight-icon">
+                      <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">Panel Discussion</div>
+                      <div className="highlight-info">Seed to Unicorn</div>
+                  </div>
                 </div>
                 <div className="highlight-col">
-                <div className="highlight-icon">
-                    {/* TO DO: Change to tiger launch */}
-                <i class="fas fa-fire"></i>   
+                  <div className="highlight-icon">
+                      <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">Panel Discussion</div>
+                      <div className="highlight-info">Securing Funding</div>
+                  </div>
                 </div>
-                <div className="highlight-details">
-                    <div className="highlight-header">TigerLaunch Singapore</div>
-                    <div className="highlight-info">Big opportunities await</div>
+              </div>
+              <div className="highlight-row">
+                <div className="highlight-col">
+                  <div className="highlight-icon">
+                  <i class="fas fa-fire"></i>
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">Keynote Speaker</div>
+                      <div className="highlight-info">Startup to IPO</div>
+                  </div>
                 </div>
+                <div className="highlight-col">
+                  <div className="highlight-icon">
+                      {/* TO DO: Change to tiger launch */}
+                  <i class="fas fa-fire"></i>   
+                  </div>
+                  <div className="highlight-details">
+                      <div className="highlight-header">TigerLaunch Singapore</div>
+                      <div className="highlight-info">Big opportunities await</div>
+                  </div>
                 </div>
+              </div>
             </div>
-          </div>
+          )}
         </ParallaxLayer>
       
         <ParallaxLayer offset={2} speed={0} factor={0.5} onClick={() => parallaxRef.current.scrollTo(0)}>

@@ -10,7 +10,7 @@
 }
 .parallax-scroll-hook{
     &.mobile > div{
-        height: calc(7.95 * 100vh) !important;
+        height: calc(8.7 * 100%) !important; //8 * 100vh
     }
     
 }

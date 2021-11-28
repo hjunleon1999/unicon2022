@@ -16,9 +16,6 @@
     align-items: center;
 }
 .agenda{
-    height: 100%;
-}
-.agenda{
     width: 70%;
     height: 90%;
     border-radius: 16px;
@@ -29,12 +26,13 @@
     #dayHeader{
         margin-top: 16px;
         width: 100%;
-        height: 64px;
+        // height: 64px;
         font-size: $h2-fs;
         display: flex;
         justify-content: center;
         align-items: center;
         div{
+            padding: 16px;
             width: 100%;
             height: 100%;
             text-align: center;
@@ -153,3 +151,34 @@
 }
 
 
+.mobile{
+    .agendaWrap{
+        .agenda{
+            width: 90%;     
+            margin: 0;
+            border-radius: 8px;
+            #dayHeader{
+                font-size: $n-plus-fs;
+            }  
+            .agendaItem{
+                
+                padding: 16px 28px;
+            }
+        }
+        .agendaContainer {
+            height: calc(100% - 160px);
+        }
+    }
+    
+    
+    .highlights{
+        .highlight-row{
+        
+            .highlight-col{
+                width: 320px;
+                display:flex;
+                align-items: top;
+            }
+        }
+    }
+}

@@ -29,7 +29,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
   console.log(`${win_width} ${win_height} ${is_mobile}`);
   const deadline = new Date("Jan 15, 2022 00:00:00");
   // const starLayer = useRef(null);
-  // const [curScroll, setCurScroll] = useState(0);
+  const [curScroll, setCurScroll] = useState(0);
   const [bkgroundPos, setBkgroundPos] = useState("translate3d(0px, 0, 3em)");
   // "translate3d(12px, 50%, 3em)"
 
@@ -40,8 +40,8 @@ export default function Home({ win_width, win_height, is_mobile }) {
 
   const parallaxRef = useRef(null); //true
   const [isParallaxMounted, setParallaxMounted] = useState(false);
-  const numOfPages = is_mobile?8:6.4
-  console.log(`numOfPages: ${numOfPages}`)
+  const numOfPages = is_mobile ? 7.925 : 6.4;
+  console.log(`numOfPages: ${numOfPages}`);
   // const [playCanvas,setPlayCanvas] = useState(false)
   // const p_observer = new IntersectionObserver(
   //   ([entry]) => setParallaxMounted(entry.isParallaxMounted)
@@ -177,11 +177,15 @@ export default function Home({ win_width, win_height, is_mobile }) {
   //   }
   // }
 
+  // const isVisible = (e) => {
+
+  // }
+
   // const getScrollE = (e) => {
   //   // console.log(e);
   //   let curScroll = e.target.scrollTop;
   //   setCurScroll(curScroll)
-  //   // console.log(`curScroll: ${curScroll}`);
+  //   console.log(`curScroll: ${curScroll}`);
   //   // setCanvasPlay()
   // };
 
@@ -194,14 +198,6 @@ export default function Home({ win_width, win_height, is_mobile }) {
   //   parallaxContainer.addEventListener("scroll", throttleScrollHandler);
   //   // isParallaxContainer = true
   // }, []);
-
-  // useEffect(()=>{
-  //   let shootingCanvas = document.querySelector('.shootingCanvas')
-  //   console.log(shootingCanvas)
-  //   if (!shootingCanvas) return
-  //   canvasOffsetTop = shootingCanvas.offsetTop
-  //   shootStarCanvas = shootingCanvas
-  // },[])
 
   // onMouseMove={(e)=> bkgroundMouseMove(e)} onMouseLeave={(e)=> resetbkgroundTransforms(e)}
 
@@ -257,7 +253,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               style={{ display: "block", width: "100%", minWidth: "1350px" }}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={0.5} speed={1.25}>
+          <ParallaxLayer offset={is_mobile ? 0.6 : 0.75} speed={1.25}>
             <img
               src={"/assets/images/rocketFly.png"}
               style={{
@@ -293,7 +289,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
             {!is_mobile && <DisplayCountdown />}
           </ParallaxLayer>
           <ParallaxLayer
-            offset={Math.min(0.825)}
+            offset={is_mobile ? 0.8 : Math.min(0.825)}
             // ,0.825 * (win_width/1800)
             speed={0.5}
             factor={0.6}
@@ -398,31 +394,86 @@ export default function Home({ win_width, win_height, is_mobile }) {
           <ParallaxLayer offset={2.04} speed={0}>
             <img
               src={"/assets/images/people1.webp"}
-              style={{ display: "block", width: "20%", marginLeft: "75%" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "55%" : "20%",
+                marginLeft: is_mobile ? "45%" : "75%",
+              }}
             />
           </ParallaxLayer>
           <ParallaxLayer offset={2.84} speed={0.6}>
             <img
               src={"/assets/images/smartWatch.png"}
-              style={{ display: "block", width: "20%", marginLeft: "15%" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "55%" : "20%",
+                marginLeft: "15%",
+              }}
             />
           </ParallaxLayer>
           <ParallaxLayer offset={3.04} speed={0.1}>
             <img
               src={"/assets/images/people4.webp"}
-              style={{ display: "block", width: "20%", marginLeft: "75%", zIndex: "-1" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "55%" : "20%",
+                marginLeft: is_mobile ? "45%" : "75%",
+                zIndex: "-1",
+              }}
             />
           </ParallaxLayer>
           <ParallaxLayer offset={3.74} speed={0.2}>
             <img
               src={"/assets/images/blockchainThingy.png"}
-              style={{ display: "block", width: "20%", marginLeft: "15%", zIndex: "-1" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "55%" : "20%",
+                marginLeft: "15%",
+                zIndex: "-1",
+              }}
             />
+          </ParallaxLayer>
+          <ParallaxLayer offset={4.54} speed={0}>
+            <img
+              src={"/assets/images/glommiginte.webp"}
+              style={{
+                display: "block",
+                width: is_mobile ? "55%" : "20%",
+                marginLeft: is_mobile ? "45%" : "75%",
+                zIndex: "-1",
+              }}
+            />
+          </ParallaxLayer>
+          <ParallaxLayer offset={5.44} speed={0}>
+            <div
+              style={{
+                display: "block",
+                width: is_mobile ? "55%" : "20%",
+                marginLeft: "15%",
+                zIndex: "-1",
+                position: "relative",
+                height: "100%"
+              }}
+            >
+              <img
+                src={"/assets/images/theWorld.svg"}
+                style={{ position: "absolute" }}
+              />
+              <img
+                src={"/assets/images/theFuture.gif"}
+                style={{
+                  position: "absolute",
+                  top: "-30px",
+                  right: "-10px",
+                  height: "15%",
+                }}
+              />
+            </div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={2}
             speed={1}
-            factor={is_mobile?2:0.8}
+            factor={is_mobile ? 2 : 0.8}
             onClick={() => parallaxRef.current.scrollTo(3)}
             // sticky={{start:2.5,end:3}}
           >
@@ -479,62 +530,61 @@ export default function Home({ win_width, win_height, is_mobile }) {
 
               {is_mobile && (
                 <>
-                <div className="cardRow">
-                  <ImageCard
-                    title={"Gloabl Outreach"}
-                    info={globalOutreachTxt}
-                    image={"/assets/images/why1.jpg"}
-                    styles={{
-                      width: "320px",
-                      height: "200px",
-                    }}
-                  />
+                  <div className="cardRow">
+                    <ImageCard
+                      title={"Gloabl Outreach"}
+                      info={globalOutreachTxt}
+                      image={"/assets/images/why1.jpg"}
+                      styles={{
+                        width: "320px",
+                        height: "200px",
+                      }}
+                    />
                   </div>
                   <div className="cardRow">
-                  <ImageCard
-                    title={"World Class Insights"}
-                    info={wordClassText}
-                    image={"/assets/images/why2.png"}
-                    styles={{
-                      width: "320px",
-                      height: "200px",
-                    }}
-                  />
+                    <ImageCard
+                      title={"World Class Insights"}
+                      info={wordClassText}
+                      image={"/assets/images/why2.png"}
+                      styles={{
+                        width: "320px",
+                        height: "200px",
+                      }}
+                    />
                   </div>
                   <div className="cardRow">
-                  <ImageCard
-                    title={"Community & Networks"}
-                    info={comAndNetworksText}
-                    image={
-                      "/assets/images/why3.jpg" //"https://uniconglobal.com/wp-content/uploads/2020/11/53026329_1077061912466518_7541375093264351232_o.jpg"
-                    }
-                    styles={{
-                      width: "320px",
-                      height: "200px",
-                    }}
-                  />
-
+                    <ImageCard
+                      title={"Community & Networks"}
+                      info={comAndNetworksText}
+                      image={
+                        "/assets/images/why3.jpg" //"https://uniconglobal.com/wp-content/uploads/2020/11/53026329_1077061912466518_7541375093264351232_o.jpg"
+                      }
+                      styles={{
+                        width: "320px",
+                        height: "200px",
+                      }}
+                    />
                   </div>
                   <div className="cardRow">
-                  <ImageCard
-                    title={"Tiger Launch Pitching Competition"}
-                    info={tigerLaunchText}
-                    image={
-                      "/assets/images/why4.jpg" //"https://uniconglobal.com/wp-content/uploads/2020/11/53089489_1077065175799525_4321099912843362304_o.jpg"
-                    }
-                    styles={{
-                      width: "320px",
-                      height: "200px",
-                    }}
-                  />
+                    <ImageCard
+                      title={"Tiger Launch Pitching Competition"}
+                      info={tigerLaunchText}
+                      image={
+                        "/assets/images/why4.jpg" //"https://uniconglobal.com/wp-content/uploads/2020/11/53089489_1077065175799525_4321099912843362304_o.jpg"
+                      }
+                      styles={{
+                        width: "320px",
+                        height: "200px",
+                      }}
+                    />
                   </div>
                 </>
               )}
             </div>
           </ParallaxLayer>
-          
+
           <ParallaxLayer
-            offset={is_mobile?6.7:4.7}
+            offset={is_mobile ? 6.7 : 4.7}
             speed={0}
             factor={0.3}
             style={{
@@ -542,15 +592,15 @@ export default function Home({ win_width, win_height, is_mobile }) {
             }}
           />
           <ParallaxLayer
-            offset={is_mobile?4:3}
-            speed={1.5}
+            offset={is_mobile ? 4 : 3}
+            speed={0.75}
             factor={1}
             onClick={() => parallaxRef.current.scrollTo(5)}
           >
-            <OurReach is_mobile={is_mobile}/>
+            <OurReach is_mobile={is_mobile} />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile?7:5}
+            offset={is_mobile ? 7 : 5}
             speed={0}
             factor={1}
             style={{
@@ -558,7 +608,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
             }}
           ></ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile?6:4}
+            offset={is_mobile ? 6 : 4}
             speed={1.5}
             factor={1}
             className="whatsNew"
@@ -567,7 +617,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               //https://uniconglobal.com/wp-content/uploads/2020/12/53870539_10157042893913540_7596384626369626112_o.jpg
               backgroundSize: "cover",
             }}
-            onClick={() => parallaxRef.current.scrollTo(is_mobile?6:5)}
+            onClick={() => parallaxRef.current.scrollTo(is_mobile ? 6 : 5)}
           >
             <div
               style={{
@@ -591,24 +641,28 @@ export default function Home({ win_width, win_height, is_mobile }) {
               competition is surely not to be missed!
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile?6.95:4.95} speed={0.3}>
+          <ParallaxLayer offset={is_mobile ? 6.95 : 4.95} speed={0.3}>
             <img
               src={"/assets/images/satellite.png"}
-              style={{ display: "block", width: "15%", marginLeft: "75%" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "35%" : "15%",
+                marginLeft: is_mobile ? "55%" : "75%",
+              }}
             />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile?7:5}
+            offset={is_mobile ? 7 : 5}
             speed={0}
             factor={1}
             className="shootingCanvas"
           >
             {!is_mobile && <ShootingStars nums={10} />}
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile?7:5} speed={0} factor={1}>
+          <ParallaxLayer offset={is_mobile ? 7 : 5} speed={0} factor={1}>
             <PulseStars stylelist={starStyles} is_mobile={is_mobile} />
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile?7.6:5.6} speed={0.5}>
+          <ParallaxLayer offset={is_mobile ? 7.6 : 5.6} speed={0.5}>
             {!is_mobile && (
               <img
                 src={"/assets/images/backClouds.png"}
@@ -616,7 +670,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               />
             )}
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile?7.5:5.5}  speed={0.75}>
+          <ParallaxLayer offset={is_mobile ? 7.5 : 5.5} speed={0.75}>
             {!is_mobile && (
               <img
                 src={"/assets/images/frontClouds.png"}
@@ -624,43 +678,56 @@ export default function Home({ win_width, win_height, is_mobile }) {
               />
             )}
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile?7.3:5.3} speed={1}>
+          <ParallaxLayer offset={is_mobile ? 7.3 : 5.3} speed={1}>
             <img
               src={"/assets/images/unicornRocket.png"}
-              style={{ display: "block", width: is_mobile?"50%":"20%", margin: is_mobile?"auto":"",marginLeft: is_mobile?"auto":"70%" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "50%" : "20%",
+                margin: is_mobile ? "auto" : "",
+                marginLeft: is_mobile ? "auto" : "70%",
+              }}
             />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile?7.02:5.02} 
+            offset={is_mobile ? 7.02 : 5.02}
             speed={1.5}
             onClick={() => parallaxRef.current.scrollTo(0)}
           >
             <img
               src={"/assets/images/glowingMoon.png"}
-              style={{ display: "block", width: is_mobile?"45%":"15%", marginLeft: "10%" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "45%" : "15%",
+                marginLeft: "5%",
+              }}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile?7.3:5.3}  speed={2}>
+          <ParallaxLayer offset={is_mobile ? 7.3 : 5.3} speed={2}>
             <img
               src={"/assets/images/uniconTitle2.png"}
-              style={{ display: "block", width: is_mobile?"50%":"20%", margin: is_mobile?"auto":"",marginLeft: is_mobile?"auto":"15%" }}
+              style={{
+                display: "block",
+                width: is_mobile ? "50%" : "20%",
+                margin: is_mobile ? "auto" : "",
+                marginLeft: is_mobile ? "auto" : "15%",
+              }}
             />
           </ParallaxLayer>
-          
-          <ParallaxLayer offset={8.65 - 0.75}
+
+          {/* <ParallaxLayer offset={7.9}
             speed={0}
             factor={1}
-            style={{ background: "#D43924"}} />
+            style={{ background: "#D43924"}} /> */}
           <ParallaxLayer
-            offset={is_mobile?7.925:5.925}
-            speed={0.75}
-            factor={0.8}
+            offset={is_mobile ? 7.925 : 5.925}
+            speed={is_mobile ? 0 : 0.75}
+            factor={is_mobile ? 0.8 : 1}
             // className="parallaxFooter"
             style={{ background: "#D43924" }}
           >
             <Footer />
           </ParallaxLayer>
-          
         </Parallax>
         <TicketOverlay />
       </div>

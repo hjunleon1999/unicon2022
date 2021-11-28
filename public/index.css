@@ -6,9 +6,15 @@ html, body,#root {
     width: 100%;
     margin:0;
     padding:0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* touch-action: pan-up; */
 }
 
+body{
+  position: fixed;
+}
+
+/* * { outline: 1px red solid !important; visibility: visible !important } */
 *,
 *:after,
 *:before {

@@ -2,9 +2,10 @@ import Topbar from "../../components/topbar/Topbar";
 import Footer from "../home/footer/Footer";
 import Particles from "react-tsparticles";
 import TicketOverlay from "../../components/ticketOverlay/TicketOverlay";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef, createRef } from "react";
 import { Link } from "react-router-dom";
 import { throttle } from "lodash";
+import { ReactCSSTransitionGroup } from 'react-transition-group'; 
 import "./SpeakersPage.scss";
 
 import { speakerInfo2021, speakerInfo2019 } from "./SpeakerInfo";
@@ -71,12 +72,53 @@ const InstaStoryCircle = () => {
 };
 
 export default function SpeakersPage({ win_width, win_height, is_mobile }) {
+  const postListRef = useRef(null); //true
   const [year, setYear] = useState(2021);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
   const [speakerList, setSpeakerList] = useState(speakerInfo2021);
+
+  // const [openMoreInfo, setOpenMoreInfo] = useState(false);
+  // const [curPersonInfo, setCurPersonInfo] = useState(0)
+  // let post_els = useRef([]);
+  // const [post_els, setPost_els] = useState(Array(speakerList.length).fill().map((_, i) => createRef()));
+  const postRefs = useRef([])
+  let postlistEl = null
+  let postlistOffsetTop = 0
+  // useEffect(()=>{
+    // setPost_els(elRefs => (
+    //   Array(speakerList.length).fill().map((_, i) => elRefs[i] || createRef())
+    // ));
+    //postRefs.current[i] || 
+  postRefs.current = Array(speakerList.length).fill().map((_, i) => postRefs.current[i] || createRef());
+  // } ,[postRefs.current.length])
+  const setOpenMoreInfo = (idx) => {
+    console.log("setOpenMoreInfo")
+    // console.log(postRefs.current)
+    // post_els = document.querySelectorAll(".post")
+    // if (!post_els || post_els.length == 0) return
+    let curPost = postRefs.current[idx].current
+    console.log(curPost)
+    let curTop = curPost.offsetTop
+    // console.log(`curTop: ${curTop}`)
+    postlistEl.scrollTo(0,curTop - postlistOffsetTop);
+
+    const post_list = postListRef.current
+    post_list.classList.add('active')
+
+    // setTimeout(()=>{
+    //   const post_list = postListRef.current
+    //   post_list.classList.toggle('active')
+    // }, 500)
+    //add("active");//
+  }
+
+  const closeMoreInfo = () => {
+    const post_list = postListRef.current
+    post_list.classList.remove('active')
+  }
 
   //   React.useEffect(() => {
   function handleResize() {
@@ -93,25 +135,108 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
     }
   }, [year]);
   // }
+
+
+  // useEffect(() => {
+  //   const post_els = document.querySelectorAll(".post")
+  //   if (!post_els || post_els.length == 0) return
+  //   let curPost = post_els[curPersonInfo]
+  //   curPost.scrollIntoView();
+  // }, [openMoreInfo])
+
   const throttleResizeHandler = useMemo(() => throttle(handleResize, 200), []);
 
   window.addEventListener("resize", throttleResizeHandler);
 
+  const Post = ({id, item, year}) => {
+    return(
+      <div className="post">
+        <div className="post__info">
+          {item.title ? (
+            <div className="post__info__title">{item.title}</div>
+          ) : (
+            ""
+          )}
+          <img src={item.imgsrc || ""} />
+          
+          <div className="infoWrap">
+            {item.subtitle ? (
+              <div className="post__info__subtitle">{item.subtitle}</div>
+            ) : (
+              ""
+            )}
+            { item.info ? (
+              <div className="post__info__info">{item.info}</div>
+            ) : (
+              "Good speaker"
+            )}
+          
+            <div className="post__info__year">{year}</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const PostList = ({vals, year}) => {
+    useEffect(()=>{
+      postlistEl = document.getElementsByClassName("post-list")[0]
+      postlistOffsetTop = postlistEl.offsetTop
+    },[])
+    
+    return(
+      <>
+        <div className="post-list__header">
+          <div className="backBtn" onClick={closeMoreInfo}>
+            <i class="fas fa-arrow-left"></i>
+          </div>
+          <div>
+            Speakers
+          </div>
+        </div>
+        <div className="post-list">
+          {vals.map((item, index) => (
+            <div className="refWrap" ref={postRefs.current[index]}>
+              <Post  key={index.toString()} id={index} item={item} year={year} />
+            </div>
+          ))}
+        </div>
+      </>
+    )
+
+  }
+
+
+
   const GridItem = (props) => {
+    
+    let itemKey = parseInt(props.id);
+    // console.log(`itemKey: ${itemKey}`)
     const [isHover, setHover] = useState(false);
+
     let item = props.item;
     return (
       <div
         className={"grid-item"}
         onMouseEnter={() => {
-          setHover(true);
+          if (!is_mobile){
+            setHover(true);
+          }
         }}
         onMouseLeave={() => {
-          setHover(false);
+          if (!is_mobile && item.imgsrc){
+            setHover(false);
+          }
+        }}
+        onClick={() => {
+          if (is_mobile && item.imgsrc){
+            setHover(!isHover);
+          }
         }}
       >
         {item.imgsrc && <img src={item.imgsrc || ""} />}
-        {isHover && (
+        {item.imgsrc && is_mobile && isHover && setOpenMoreInfo(itemKey)}
+        {(!is_mobile && isHover) && (
           <div className="grid-item__overlay">
             <div className="grid-item__info">
               {item.title ? (
@@ -136,7 +261,9 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
     );
   };
 
-  const GridRow = (props) => {
+  const GridRow = (props) => { 
+    let rowKey = parseInt(props.id);
+    // console.log(`rowKey: ${rowKey}`)
     let vals = props.vals;
     let numPerRow = props.numPerRow;
     if (vals.length < numPerRow) {
@@ -147,7 +274,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
     return (
       <div className={"grid-row"} style={{maxHeight:(win_width/3), marginBottom:is_mobile?"0px":"28px"}}>
         {vals.map((item, index) => (
-          <GridItem key={index} item={item} />
+          <GridItem key={(rowKey + index).toString()} id={(rowKey + index)}  item={item} />
         ))}
       </div>
     );
@@ -155,7 +282,6 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
 
   const GridGallery = (props) => {
     let vals = props.vals;
-
     // console.log(dimensions);
     let defaultItemNum = 6;
     let itemPerRow = 6;
@@ -168,7 +294,6 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
       defaultItemNum = 5;
     }
     let gridrows = [];
-    let rowKey = 0;
     itemPerRow = defaultItemNum;
     // setItemPerRow(defaultItemNum)
 
@@ -183,7 +308,8 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
     for (let i = 0; i < vals.length; i += itemPerRow) {
       gridrows.push(
         <GridRow
-          key={rowKey}
+          key={i.toString()}
+          id={i}
           vals={vals.slice(i, i + itemPerRow)}
           numPerRow={itemPerRow}
         />
@@ -208,6 +334,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
   };
 
   return (
+    // <div style={{"overflow":"hidden"}}>
     <>
       <Topbar is_mobile={is_mobile} />
       <div id="SpeakerPage" className={`${is_mobile ? "mobile" : ""}`}>
@@ -304,8 +431,8 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
                 </a>
               </div>
             </div>
+            
           )}
-
           {/* <div className="yearSelectionWrap"> */}
           <div className="yearSelection">
             <div className="yearBtnWrap">
@@ -331,12 +458,20 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
           </div>
           {/* </div> */}
           <GridGallery vals={speakerList} />
+          
         </div>
         <div className="footerWrap">
           <Footer />
         </div>
+        <TicketOverlay />
       </div>
-      <TicketOverlay />
+      {is_mobile &&
+          <div ref={postListRef} className={`postlist_wrap`}>  
+            <PostList vals={speakerList} year={year}/>
+          </div>
+      }
     </>
+    
   );
 }
+{/* </div> */}
