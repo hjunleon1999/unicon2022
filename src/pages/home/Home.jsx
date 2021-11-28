@@ -244,16 +244,16 @@ export default function Home({ win_width, win_height, is_mobile }) {
           <ParallaxLayer offset={0.4} speed={0.45}>
             <img
               src={"/assets/images/backMountains.png"}
-              style={{ display: "block", width: "100%", minWidth: "1350px" }}
+              style={{ display: "block", width: "100%", minWidth: "1650px" }}
             />
           </ParallaxLayer>
           <ParallaxLayer offset={0.5} speed={0.15}>
             <img
               src={"/assets/images/frontMountains.png"}
-              style={{ display: "block", width: "100%", minWidth: "1350px" }}
+              style={{ display: "block", width: "100%", minWidth: "1450px" }}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 0.6 : 0.75} speed={1.25}>
+          <ParallaxLayer offset={is_mobile ? 0.6 : 0.425} speed={1.5}>
             <img
               src={"/assets/images/rocketFly.png"}
               style={{
@@ -393,6 +393,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
           </ParallaxLayer> */}
           <ParallaxLayer offset={2.04} speed={0}>
             <img
+              className={"bg-img"}
               src={"/assets/images/people1.webp"}
               style={{
                 display: "block",
@@ -403,6 +404,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
           </ParallaxLayer>
           <ParallaxLayer offset={2.84} speed={0.6}>
             <img
+              className={"bg-img"}
               src={"/assets/images/smartWatch.png"}
               style={{
                 display: "block",
@@ -413,44 +415,44 @@ export default function Home({ win_width, win_height, is_mobile }) {
           </ParallaxLayer>
           <ParallaxLayer offset={3.04} speed={0.1}>
             <img
+              className={"bg-img"}
               src={"/assets/images/people4.webp"}
               style={{
                 display: "block",
                 width: is_mobile ? "55%" : "20%",
                 marginLeft: is_mobile ? "45%" : "75%",
-                zIndex: "-1",
               }}
             />
           </ParallaxLayer>
           <ParallaxLayer offset={3.74} speed={0.2}>
             <img
+              className={"bg-img"}
               src={"/assets/images/blockchainThingy.png"}
               style={{
                 display: "block",
                 width: is_mobile ? "55%" : "20%",
                 marginLeft: "15%",
-                zIndex: "-1",
               }}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={4.54} speed={0}>
+          <ParallaxLayer offset={4.6} speed={0}>
             <img
+              className={"bg-img"}
               src={"/assets/images/glommiginte.webp"}
               style={{
                 display: "block",
-                width: is_mobile ? "55%" : "20%",
+                width: is_mobile ? "75%" : "30%",
                 marginLeft: is_mobile ? "45%" : "75%",
-                zIndex: "-1",
               }}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={5.44} speed={0}>
+          <ParallaxLayer offset={5.67} speed={0}>
             <div
+              className={"bg-img"}
               style={{
                 display: "block",
                 width: is_mobile ? "55%" : "20%",
                 marginLeft: "15%",
-                zIndex: "-1",
                 position: "relative",
                 height: "100%"
               }}
