@@ -371,7 +371,10 @@ export default function Home({ win_width, win_height, is_mobile }) {
               }}
             ></div>
             <div className="title">Celebrating the Startup Scene</div>
-            <div className="info">
+            <div className="info" style={{
+              textAlign: "justify",
+              textJustify: "inter-word"
+            }}>
               In 2013, the first Global Entrepreneurship Conference (GEC) was
               launched in NUS with the goal of connecting student entrepreneurs
               all over the world to create a global network of innovators. In
@@ -405,7 +408,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
           <ParallaxLayer offset={2.84} speed={0.6}>
             <img
               className={"bg-img"}
-              src={"/assets/images/smartWatch.png"}
+              src={"/assets/images/lightBulb2.gif"}
               style={{
                 display: "block",
                 width: is_mobile ? "55%" : "20%",
@@ -438,11 +441,11 @@ export default function Home({ win_width, win_height, is_mobile }) {
           <ParallaxLayer offset={4.6} speed={0}>
             <img
               className={"bg-img"}
-              src={"/assets/images/glommiginte.webp"}
+              src={"/assets/images/sustainable_1.png"}
               style={{
                 display: "block",
-                width: is_mobile ? "75%" : "30%",
-                marginLeft: is_mobile ? "45%" : "75%",
+                width: is_mobile ? "85%" : "30%",
+                marginLeft: is_mobile ? "25%" : "75%",
               }}
             />
           </ParallaxLayer>
@@ -609,6 +612,16 @@ export default function Home({ win_width, win_height, is_mobile }) {
               background: "linear-gradient(#0B0F1D,75%,#D43924)",
             }}
           ></ParallaxLayer>
+          <ParallaxLayer offset={is_mobile ? 6.95 : 4.95} speed={0.3}>
+            <img
+              src={"/assets/images/satellite.png"}
+              style={{
+                display: "block",
+                width: is_mobile ? "35%" : "15%",
+                marginLeft: is_mobile ? "55%" : "75%",
+              }}
+            />
+          </ParallaxLayer>
           <ParallaxLayer
             offset={is_mobile ? 6 : 4}
             speed={1.5}
@@ -632,7 +645,10 @@ export default function Home({ win_width, win_height, is_mobile }) {
               }}
             ></div>
             <div className="title">WHAT's NEW!</div>
-            <div className="info">
+            <div className="info" style={{
+              textAlign: "justify",
+              textJustify: "inter-word"
+            }}>
               In collaboration with Princeton Entrepreneurship Club, we are
               bringing the world’s largest student-run entrepreneurship pitching
               competition to Singapore and Asia. The inaugural TigerLaunch
@@ -643,16 +659,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               competition is surely not to be missed!
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 6.95 : 4.95} speed={0.3}>
-            <img
-              src={"/assets/images/satellite.png"}
-              style={{
-                display: "block",
-                width: is_mobile ? "35%" : "15%",
-                marginLeft: is_mobile ? "55%" : "75%",
-              }}
-            />
-          </ParallaxLayer>
+          
           <ParallaxLayer
             offset={is_mobile ? 7 : 5}
             speed={0}

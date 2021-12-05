@@ -196,7 +196,7 @@ export let agendaConsts = {
       startTime: "Jan 15, 2022 16:00:00",
       endTime: "Jan 15, 2022 16:30:00",
       category: "TigerLaunch",
-      topic: "Tigerlaunch results & UNICON Closing",
+      topic: "TigerLaunch results & UNICON Closing",
       setting: "physical",
       venue: "zoom link (tbc)",
     }

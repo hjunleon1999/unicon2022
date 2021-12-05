@@ -14,32 +14,7 @@
     }
     
 }
-.mobile{
-        
-    .celebrate, .whatsNew{
-        width: 90%;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        color: $white-1;
-        .title{
-            margin: 12px;
-        }
-        .info{
-            font-size: $n-plus-fs;
-            width: 90%;
-            line-height: 24px;
-        }
-    }
-    .cardRow{
-        width: 95%;
-        height: 480px;
-        margin: 16px 32px;
-        
-    }
-}
+
 .button{
     text-align: center;
     background-color: $orange-1;
@@ -232,4 +207,31 @@
         
     //     //     transform: translate3d(1000px, 200px, 3em);
     // }
+}
+
+.mobile{
+        
+    .celebrate, .whatsNew{
+        width: 90%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: $white-1;
+        .title{
+            margin: 12px;
+        }
+        .info{
+            font-size: $normal-fs; //!important;
+            width: 90%;
+            line-height: 24px;
+        }
+    }
+    .cardRow{
+        width: 95%;
+        height: 480px;
+        margin: 16px 32px;
+        
+    }
 }

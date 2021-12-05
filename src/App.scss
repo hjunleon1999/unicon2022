@@ -81,8 +81,11 @@ div::-webkit-scrollbar-thumb {
       font-size: 2.0vh !important;//1.2rem;
   }
   .info{
-    font-size: 3vmin !important;
-    line-height: 16px !important;
+    font-size: 3.65vmin !important;
+    // line-height: 12px !important;
+    // text-align: justify;
+    // text-justify: inter-word;
+    width: 85%;
   }
   .subText,.section{
       font-size: 4vmin !important;
