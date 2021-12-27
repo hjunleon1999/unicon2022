@@ -208,15 +208,17 @@ export let speakerInfo2022_kv = {
     }
     ,
     "0b78834f-d32b-444e-9cc9-35628b5761b4":{
-        title:"Earnest Lim",
-        subtitle:"Co-Founder",
-        info:"Munch",
+        title:"Earnest Lim Yuan",
+        subtitle:"Centre for Cybersecurity (Head of Marketing). Dirty Butter (Co-founder, Business Development Lead)",
+        info:"Centre for Cybersecurity & Dirty Butter",
         personalLink:"https://www.linkedin.com/in/earnest-lim-173388a8/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Wong Choon Yue.png",
-        // imgFull:"/assets/images/speakers/2022/robotics/Wong Choon Yue.png",
-        // description:["Dr Wong Choon Yue has designed and developed the EDGAR series of humanoid robots. \
-        // At this time, he is the Director of MAJU Robotics Pte Ltd, a company that juxtaposes robotics and artistry \
-        // to create inventions that people enjoy interacting with. He is passionate about embracing the spirit of DIY."]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/earnest.png",
+        imgFull:"/assets/images/speakers/2022/student/earnest.png",
+        description:[
+            "Earnest is currently in his last year of university, pursuing his BBM at Singapore Management University.",
+            "By day he is the Head of Marketing at Centre for Cybersecurity (www.centreforcybersecurity.com), a cybersecurity training company that trains individuals from absolute beginner to cybersecurity professionals in months.",
+            "By night, he gets his hands dirty churning ideas (and butter) for Dirty Butter (www.dirtybutter.co)."
+        ]
     }
     ,
     "7494d95f-e479-4ccf-ad6e-9c262499fe31":{
@@ -224,8 +226,8 @@ export let speakerInfo2022_kv = {
         subtitle:"Co-Founder",
         info:"Kinobi",
         personalLink:"https://www.linkedin.com/in/benjywong/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Wong Choon Yue.png",
-        // imgFull:"/assets/images/speakers/2022/robotics/Wong Choon Yue.png",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Benjamin Wong.jpeg",
+        imgFull:"/assets/images/speakers/2022/student/Benjamin Wong.jpeg",
         // description:["Dr Wong Choon Yue has designed and developed the EDGAR series of humanoid robots. \
         // At this time, he is the Director of MAJU Robotics Pte Ltd, a company that juxtaposes robotics and artistry \
         // to create inventions that people enjoy interacting with. He is passionate about embracing the spirit of DIY."]
@@ -236,11 +238,13 @@ export let speakerInfo2022_kv = {
         subtitle:"Co-Founder",
         info:"Skillo",
         personalLink:"https://www.linkedin.com/in/felix-tan-skilio/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Wong Choon Yue.png",
-        // imgFull:"/assets/images/speakers/2022/robotics/Wong Choon Yue.png",
-        // description:["Dr Wong Choon Yue has designed and developed the EDGAR series of humanoid robots. \
-        // At this time, he is the Director of MAJU Robotics Pte Ltd, a company that juxtaposes robotics and artistry \
-        // to create inventions that people enjoy interacting with. He is passionate about embracing the spirit of DIY."]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/felix.jpg",
+        imgFull:"/assets/images/speakers/2022/student/felix.jpg",
+        description:[
+            "Felix is the Cofounder & CEO of Skilio (www.skilio.co), an edtech startup that helps youth build up a future-ready skills portfolio. He is passionate about the space of youth development and education.",
+            "As a student entrepreneur, he won the Singapore chapter of the Global Student Entrepreneur Award organized by the Entrepreneur’s Organisation in January 2020. Felix also represented Singapore in the global finals of the Startup World Championship in Montreal and is the Silver Awardee of the National Youth Entrepreneur Awards organized by the Action Community for Entrepreneurship (ACE).",
+            "As a lead trainer at Reactor School, a leading provider of entrepreneurship education to youth from 13 to 24, Felix has clocked over 300 training hours, equipping youths in Southeast Asia with entrepreneurship skills. In his spare capacity, Felix also volunteers to mentor youth in areas of entrepreneurship and skills development."
+        ]
     }
     ,
     "c6051b2e-c51e-4bed-936a-4d57d7ad98f2":{
@@ -455,7 +459,12 @@ export let speakerInfo2022_kv = {
         personalLink:"https://www.linkedin.com/in/robyung/",
         imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Robby Yung.JPG",
         imgFull:"/assets/images/speakers/2022/seedtounicorn/Robby Yung.JPG",
-        description:[]
+        description:[
+            "Robby Yung is a serial entrepreneur who has founded several successful businesses in China and Hong Kong across mobile gaming, mobile telecoms and software applications, cable television, internet services, outdoor advertising and publishing. As CEO, he transformed Animoca Brands into a multi-billion dollar company, shifting its focus to innovation around blockchain, cryptocurrency and NFTs.",
+            "As a mobile gaming pioneer, Robby sees tremendous potential for gaming in blockchain technology and is pushing Animoca Brands to the forefront of this new movement.",
+            "Robby was previously the co-founder and CFO of Redgate Media, a venture-backed Chinese television and outdoor media holding company sold to Inno-Tech Holdings Limited (HK.8202). He also co-founded and served as chief strategy officer of One Media Group (HK.426), the Hong Kong-based magazine group. Previously, Robby founded and led One Studio, a venture-backed web development company in Hong Kong and OSMedia (a Chinese television advertising sales company). He began his career at Metromedia (AMEX: MMG) building wireless telecom networks in China and Indonesia.",
+            "Outside of his role as CEO, Robby serves as an advisory board member for the Mobile Games Forum."
+        ]
     }
     ,
     "ebbb93ac-02b7-47fa-8c29-940993554474":{
@@ -601,13 +610,12 @@ export let speakerInfo2022_kv = {
         subtitle:"Co-Founder",
         info:"ConnectOne",
         personalLink:"https://www.linkedin.com/in/elenachow/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Lily Wu.jpeg",
-        // imgFull:"/assets/images/speakers/2022/women/Lily Wu.jpeg",
-        // description:[
-        //     "Lily Wu is currently the Startup Partner Lead, SEA at Stripe. Previously, she was immersed in the startup world where she bootstrapped two 7-figure businesses from the ground up. She expanded her 2nd startup, Austern International across APAC, US and Europe, in which she exited in 2018. She then went to become the Head of Programs for NewCampus, a Series A edutech startup based in Singapore as well as program managed H2 Ventures' accelerator program- Australia's largest fintech, big data and AI accelerator. ",
-        //     "She is the founding ambassador of Future Females Singapore, a global organisation dedicated to helping female entrepreneurs get the resources and connections they need to succeed and often runs design thinking workshops for VCs and companies across APAC.",
-        //     "Fun fact, she is also an illustrator, published author and has a black belt in Japanese martial arts, Taido."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/elena.jpg",
+        imgFull:"/assets/images/speakers/2022/startupVsCorp/elena.jpg",
+        description:[
+            "Elena is the Founder of ConnectOne who since 2013 have partnered the early stage technology startup ecosystem to build and optimize teams for growth.  In doing so, she and her team have met, coached and build a robust community of entrepreneurial minded individuals.  She is well known for her generosity in mentoring startup founders, teaching at accelerators/incubators and doing corporate-to-startup career transition coaching.",
+            "Prior to ConnectOne, she had spent 15 years in Procter & Gamble. She is a proud mum of 4 kids aged 12 to 22.  Outside of work, she teaches the youths in church, sits on a board of a kindergarten and is a advocate of functional training.",
+        ]
     }
     ,
     "1a190086-62ab-475e-913a-5e3dde9098fc":{
@@ -643,27 +651,26 @@ export let speakerInfo2022_kv = {
         subtitle:"Co-Founder",
         info:"ReferralCandy",
         personalLink:"https://www.linkedin.com/in/zachca/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Lily Wu.jpeg",
-        // imgFull:"/assets/images/speakers/2022/women/Lily Wu.jpeg",
-        // description:[
-        //     "Lily Wu is currently the Startup Partner Lead, SEA at Stripe. Previously, she was immersed in the startup world where she bootstrapped two 7-figure businesses from the ground up. She expanded her 2nd startup, Austern International across APAC, US and Europe, in which she exited in 2018. She then went to become the Head of Programs for NewCampus, a Series A edutech startup based in Singapore as well as program managed H2 Ventures' accelerator program- Australia's largest fintech, big data and AI accelerator. ",
-        //     "She is the founding ambassador of Future Females Singapore, a global organisation dedicated to helping female entrepreneurs get the resources and connections they need to succeed and often runs design thinking workshops for VCs and companies across APAC.",
-        //     "Fun fact, she is also an illustrator, published author and has a black belt in Japanese martial arts, Taido."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/zach-referralcandy.jpg",
+        imgFull:"/assets/images/speakers/2022/startupVsCorp/zach-referralcandy.jpg",
+        description:[
+            "Zach is a co-founder of ReferralCandy, one of the top referral marketing apps for ecommerce merchants, and is on a mission to help SMBs acquire customers. A computer engineer by training, Zach started his career in the Singapore government where he held a variety of operational and policy roles and left after a few years to start ReferralCandy."
+        ]
     }
     ,
     "9556430a-62c3-46a6-8790-dc4cbac21a7a":{
         title:"Jeremi Joslin",
-        subtitle:"Co-Founder",
-        info:"Collabspot",
+        subtitle:"Co-Founder & CTO",
+        info:"Newlogic",
         personalLink:"https://www.linkedin.com/in/jeremijoslin/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Lily Wu.jpeg",
-        // imgFull:"/assets/images/speakers/2022/women/Lily Wu.jpeg",
-        // description:[
-        //     "Lily Wu is currently the Startup Partner Lead, SEA at Stripe. Previously, she was immersed in the startup world where she bootstrapped two 7-figure businesses from the ground up. She expanded her 2nd startup, Austern International across APAC, US and Europe, in which she exited in 2018. She then went to become the Head of Programs for NewCampus, a Series A edutech startup based in Singapore as well as program managed H2 Ventures' accelerator program- Australia's largest fintech, big data and AI accelerator. ",
-        //     "She is the founding ambassador of Future Females Singapore, a global organisation dedicated to helping female entrepreneurs get the resources and connections they need to succeed and often runs design thinking workshops for VCs and companies across APAC.",
-        //     "Fun fact, she is also an illustrator, published author and has a black belt in Japanese martial arts, Taido."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/jeremiJoslin.jpg",
+        imgFull:"/assets/images/speakers/2022/startupVsCorp/jeremiJoslin.jpg",
+        description:[
+            "Jeremi Joslin is co-founder and CTO of Newlogic, an impact-driven digital consultancy with technological excellence at its core.",
+            "Jeremi’s tech journey started 25 years ago at his childhood town’s Internet cafe, one of the first to open in France. From this period writing his first lines of code to driving the development of award-winning open source identity solution ID PASS, Jeremi’s entrepreneurial passion for technology and discovery led to him founding several successful startups, including Collabspot, a CRM integration solution acquired by Accel-KKR in 2019.",
+            "At Newlogic, Jeremi spearheads technical strategy and leads R&D efforts that help organizations leverage new technologies to address today’s complex challenges. Jeremi also serves on the board of Meeds, a blockchain-based employee recognition software, and regularly speaks at events on technology and digital identity.",
+            "When he’s not behind the screen, Jeremi is either getting his hands dirty with AgTech experiments or cruising the big blue on his boat."
+        ]
     }
     ,
     "aef2503f-51de-4a1f-bc30-9db5be367dae":{
@@ -722,12 +729,14 @@ export let speakerInfo2022_kv = {
     },
     "4b09e65e-371d-4d46-bdd8-4c7dc1983ccc":{
         title:"Kenneth Lou",
-        subtitle:"Co-Founder",
+        subtitle:"Co-Founder, CEO",
         info:"Seedly",
         personalLink:"https://www.linkedin.com/in/kenneth-lou/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Syed Ali.jpeg",
-        // imgFull:"/assets/images/speakers/2022/zero-one/Syed Ali.jpeg",
-        // description:[]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/kenneth.png",
+        imgFull:"/assets/images/speakers/2022/zero-one/kenneth.png",
+        description:[
+            "Kenneth Lou is the Co-founder, CEO of Seedly. He believes in helping others make smarter financial decisions and currently runs the largest personal finance community in Singapore with over 1.1 million monthly visitors who visit the platform monthly to engage and learn."
+        ]
     },
     
 }

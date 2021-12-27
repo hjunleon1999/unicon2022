@@ -1,6 +1,7 @@
 // import { day1Date } from "../Constants";
 // IDEALLY, speakers should have a primary key but i already stored in list form, not key val on first layer. Oops
-
+export const o_venue = "Gather";
+export const p_venue="Treetop @ *SCAPE";
 export let agendaConsts_kv = {
   1:{
     "bfdf2d18-869e-49c0-9be0-672146478b54":{
@@ -9,7 +10,7 @@ export let agendaConsts_kv = {
         "category":"Opening",
         "topic":"Opening Welcome by NES",
         "setting":"online",
-        "venue":"zoom link (tbc)"
+        "o_venue":"Gather",
     },
     "fc646632-b4ef-47db-84ae-87ff1a3f8a1f":{
         "startTime":"Jan 15, 2022 09:30:00",
@@ -17,8 +18,9 @@ export let agendaConsts_kv = {
         "category":"Keynote",
         "topic":"Journey of a Founder",
         "description":"A founder shares her experiences, what it's like when starting her business, the challenges she has faced, and what she has learnt so far! This keynote speech will summarise on what it is like to be the founder of your own startup, one that aspiring entrepreneurs will want to hear!",
-        "setting":"online",
-        "venue":"zoom link (tbc)"
+        "setting":"physical",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
     },
     "e2e63c55-c97e-4a3b-8a2b-44582b0de3e2":{
         "startTime":"Jan 15, 2022 10:00:00",
@@ -27,7 +29,8 @@ export let agendaConsts_kv = {
         "topic":"Booming Industries - Robotics",
         "description":"With a rise in the need for automation, the Robotics industry has seen a steady growth in recent years. Find out more from the founders of Robotics startups on the future of this industry and the real-world problems that their technology is working to solve.",
         "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "4f399780-9ddd-4d66-a4ee-0d8824de11cd",
             "2d0f1e19-f335-4c10-9ff1-f621c1d20d6c",
@@ -42,7 +45,8 @@ export let agendaConsts_kv = {
         "topic":"First Steps",
         "description":"Taking that first step when starting a company is often the toughest. Learn from our panellists on how to gauge whether an idea has potential, what were some of their considerations and how to be brave when starting a new venture.",
         "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "7471cfa0-bbc6-4122-ad6c-32cf1b2a4f40",
             "10e6051f-eb21-4da6-b4a3-1d27218019bf",
@@ -56,8 +60,9 @@ export let agendaConsts_kv = {
         "category":"Fireside",
         "topic":"Booming Industries - SaaS",
         "description":"Software as a service or more commonly known as SaaS is a software delivery model with solutions delivered over the internet. Learn from the founders of acclaimed SaaS startups on how they first started and have subsequently expanded their startups and services globally.",
-        "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "setting":"online",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "c6051b2e-c51e-4bed-936a-4d57d7ad98f2",
             "1c790ec9-c03f-4a1f-96f5-eb47db8db5ae"
@@ -76,7 +81,8 @@ export let agendaConsts_kv = {
         "topic":"Post-Covid Startups/ SMEs",
         "description":"The onset of COVID-19 has brought new sets of challenges and restrictions to the industry. Learn from our founders on how they pushed through one of the toughest periods in recent history and kept their business afloat. Similarly, find out how venture capitals and investors have changed their perception when investing.",
         "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "038d23ca-64f0-4830-b175-915bc5357a27",
             "7b9a90a2-016e-47f1-a67d-8d5c33417e18",
@@ -90,7 +96,7 @@ export let agendaConsts_kv = {
         "topic":"ASEAN startup ecosystem",
         "description":"Having one of the biggest markets in the global economy, more and more successful startups are emerging from the ASEAN region. Founders from our neighbouring countries will be sharing their insights, experiences, and trends in their respective economies.",
         "setting":"online",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
         "speakerIds":[
             "a9b79272-0f9b-4224-893d-5bd4b0c73112",
             "6e50ba82-3d0d-4e25-9d58-997da107bf9f",
@@ -104,7 +110,8 @@ export let agendaConsts_kv = {
         "topic":"Women in Entrepreneurship",
         "description":"In the spirit of empowering women, we have a handful of successful women entrepreneurs to share with us their inspiring experiences in the startup scene, why is it important to have more female representation and their secrets to be who they are today!",
         "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "13476b80-93a5-48a8-8a6e-8dfe21091511",
             "9d51a42d-a461-4bd2-aa76-afc9c972062f"
@@ -117,7 +124,7 @@ export let agendaConsts_kv = {
         "topic":"Startups vs Corporates",
         "description":"Are startups always risky? Do corporations always ensure stability? The million-dollar question is whether a startup or corporate job is better in the long run, and it all depends on perspectives, priorities, and aspirations. Join this panel to hear how industry professionals debunk the myths, and how they have walked their journeys as successful entrepreneurs and as corporate professionals.",
         "setting":"online",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
         "speakerIds":[
             "b82a940d-d656-43d2-8142-dddcababf6b3",
             "1a190086-62ab-475e-913a-5e3dde9098fc",
@@ -133,7 +140,8 @@ export let agendaConsts_kv = {
         "topic":"Innovation and new technologies",
         "description":"Exploring DeepTech and learning from founders who are innovating in new technologies.",
         "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "71c194b7-078e-4f03-95af-a4a3cf8c2482",
             "7eeb098a-bdf7-45e1-a752-2cc81150fe98",
@@ -149,7 +157,8 @@ export let agendaConsts_kv = {
         "topic":"Student Entrepreneurs",
         "description":"Is it possible to be both a student and an entrepreneur? Find out how our speakers have managed their startup while still being a student and the level of discipline required to manage their time well between their business and grades.",
         "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "0b78834f-d32b-444e-9cc9-35628b5761b4",
             "7494d95f-e479-4ccf-ad6e-9c262499fe31",
@@ -163,7 +172,7 @@ export let agendaConsts_kv = {
         "topic":"Seed to Unicorn",
         "description":"One of the biggest achievements for a startup is to reach the unicorn status. Hear from our panellist of founders, early employees and C-suite executives on how they have managed and grown their startups to reach the highly coveted valuation.",
         "setting":"online",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
         "speakerIds":[
             "5ec753f8-2ada-4c9b-bd75-d1c415c77220",
             "52da4fc9-678e-4d21-a5b5-65faef814507",
@@ -175,21 +184,21 @@ export let agendaConsts_kv = {
   },
   2:{
     "ba81cbc1-d34c-41bc-a171-357d9176adab":{
-        "startTime":"Jan 15, 2022 09:30:00",
-        "endTime":"Jan 15, 2022 10:00:00",
+        "startTime":"Jan 16, 2022 09:30:00",
+        "endTime":"Jan 16, 2022 10:00:00",
         "category":"Opening by NES",
         "topic":"Opening Welcome by NES",
         "setting":"online",
-        "venue":"zoom link (tbc)"
+        "o_venue":"Gather",
     },
     "8f8aaa71-2d9d-425f-8fd5-ba8074a3c860":{
-        "startTime":"Jan 15, 2022 10:00:00",
-        "endTime":"Jan 15, 2022 11:00:00",
+        "startTime":"Jan 16, 2022 10:00:00",
+        "endTime":"Jan 16, 2022 11:00:00",
         "category":"Panel",
         "topic":"Securing Funding",
         "description":"Fundraising is no easy task that most startup founders eventually have to go through. For new founders, it might seem even more daunting not knowing what the investors are looking for. Find out more from our panel of venture capitalists on what they want to hear from a pitch especially for early stage startups and the important points to share in order to secure funding.",
         "setting":"online",
-        "venue":"zoom link (tbc)",
+        "o_venue":"Gather",
         "speakerIds":[
             "68dd3863-9de4-444b-b53f-d4d401994002",
             "c5825d86-4f51-461b-ad7e-7a4006168343",
@@ -198,13 +207,14 @@ export let agendaConsts_kv = {
         ]
     },
     "25cd41d7-637e-4b8d-b0f8-27f19db8b1dc":{
-        "startTime":"Jan 15, 2022 10:00:00",
-        "endTime":"Jan 15, 2022 10:30:00",
+        "startTime":"Jan 16, 2022 10:00:00",
+        "endTime":"Jan 16, 2022 10:30:00",
         "category":"Fireside",
         "topic":"Booming Industries - FinTech",
         "description":"With all the hype around cryptocurrencies and digital financing, FinTech has really made its mark all around the world in recent times. Hear what the founders of established FinTech startups have to share about the industry and how they have managed to distinguish themselves from their competitors.",
-        "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "setting":"online",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "3640394b-ccb9-4c69-b08f-7d1d3ac6d27a",
             "40b70155-cf0f-43c1-9c84-f7c0c9555da7",
@@ -212,13 +222,14 @@ export let agendaConsts_kv = {
         ]
     },
     "a555bb71-a2ee-4b33-98d0-53722bc14818":{
-        "startTime":"Jan 15, 2022 11:30:00",
-        "endTime":"Jan 15, 2022 13:00:00",
+        "startTime":"Jan 16, 2022 11:30:00",
+        "endTime":"Jan 16, 2022 13:00:00",
         "category":"TigerLaunch",
         "topic":"TigerLaunch Pitching #1",
         "description":"The first half of the top 16 teams will pitch to earn the coveted spot in the Finals at Princeton University. Hear the pitches of these brilliant startups from all around Asia in the inaugural TigerLaunch Singapore.",
-        "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "setting":"online",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "46c490bc-c807-4bf8-89bd-c65877cada74",
             "2a1a30d7-6158-4d20-a749-39b104cf0b2d",
@@ -229,19 +240,20 @@ export let agendaConsts_kv = {
         "isJudging": true
     },
     "fdeb7286-c42f-4fd0-ac5d-ab6192f05ebf":{
-        "startTime":"Jan 15, 2022 13:00:00",
-        "endTime":"Jan 15, 2022 14:00:00",
+        "startTime":"Jan 16, 2022 13:00:00",
+        "endTime":"Jan 16, 2022 14:00:00",
         "category":"Break",
         "topic":"LUNCH"
     },
     "303b2922-fa34-4143-9a08-9272ffb7862d":{
-        "startTime":"Jan 15, 2022 14:00:00",
-        "endTime":"Jan 15, 2022 15:00:00",
+        "startTime":"Jan 16, 2022 14:00:00",
+        "endTime":"Jan 16, 2022 15:00:00",
         "category":"TigerLaunch",
         "topic":"TigerLaunch Pitching #2",
         "description":"The second half of the top 16 teams will pitch to earn the coveted spot in the Finals at Princeton University. Hear the pitches of these brilliant startups from all around Asia in the inaugural TigerLaunch Singapore.",
-        "setting":"physical",
-        "venue":"zoom link (tbc)",
+        "setting":"online",
+        "o_venue":"Gather",
+        "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "46c490bc-c807-4bf8-89bd-c65877cada74",
             "2a1a30d7-6158-4d20-a749-39b104cf0b2d",
@@ -252,8 +264,8 @@ export let agendaConsts_kv = {
         "isJudging": true
     },
     "70a2422b-eb9b-4bf9-b340-d70756f524be":{
-        "startTime":"Jan 15, 2022 15:00:00",
-        "endTime":"Jan 15, 2022 16:00:00",
+        "startTime":"Jan 16, 2022 15:00:00",
+        "endTime":"Jan 16, 2022 16:00:00",
         "category":"Panel",
         "topic":"Zero to One",
         "description":"While waiting for our TigerLaunch judges to decide on the winner of TigerLaunch Singapore, we have assembled a panel of founders from top startups who will share the lessons they have learnt from past failures in companies or business ideas prior to the success at their current startup and how one can apply these tips when starting their own venture in the future.",
@@ -268,8 +280,8 @@ export let agendaConsts_kv = {
         ]
     },
     "65e685bb-e9b5-4d58-9b61-3e73374aae8f":{
-        "startTime":"Jan 15, 2022 16:00:00",
-        "endTime":"Jan 15, 2022 16:30:00",
+        "startTime":"Jan 16, 2022 16:00:00",
+        "endTime":"Jan 16, 2022 16:30:00",
         "category":"TigerLaunch",
         "topic":"TigerLaunch results & UNICON Closing",
         "setting":"physical",

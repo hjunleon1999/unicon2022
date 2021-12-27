@@ -5,7 +5,7 @@ import Particles from "react-tsparticles";
 import { useEffect, useState,useRef, useMemo } from "react";
 import { throttle } from "lodash";
 import { Link } from "react-router-dom";
-import { agendaConsts_kv } from "./AgendaConstants";
+import { agendaConsts_kv, o_venue, p_venue } from "./AgendaConstants";
 import { speakerInfo2022_kv } from "../speakers/SpeakerInfo";
 import { useSpring, animated } from "react-spring";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
@@ -103,6 +103,21 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
       >
         <div className="agenda-brief">
           <div className="agenda-title">{val["topic"]}</div>
+          {val['setting'] && (
+            <div className="agenda-venue">
+              
+              Online venue: {o_venue}
+              
+            </div>
+          )}
+          {val['setting'] && val['setting']=='physical' && (
+            <div className="agenda-venue">
+              
+              Physical Venue:  {p_venue}
+              
+            </div>
+          )}
+          
           <div className={`agenda-time`}>
             {just_time(startObj)} - {just_time(endObj)}
           </div>
