@@ -14,7 +14,8 @@ let benefits = [
   "UNICON Care Package (limited to first 250 sign-up)",
   "Selected Speakers Live Streaming from a Physical Venue",
 ];
-
+const ticket_url =
+  "https://www.tickettailor.com/events/nusentrepreneurshipsociety/602704";
 export default function Pricing({ win_width, win_height, is_mobile }) {
   const [text, setText] = useState("Are you looking for");
 
@@ -75,7 +76,12 @@ export default function Pricing({ win_width, win_height, is_mobile }) {
               <div>Students</div>
               <div className="norm-text">Open To Tertiary Students</div>
             </div>
-            <div className="link">
+            <div
+              className="link"
+              onClick={() => {
+                window.open(ticket_url);
+              }}
+            >
               <div>GET YOUR TICKET NOW</div>
             </div>
           </div>
@@ -86,7 +92,12 @@ export default function Pricing({ win_width, win_height, is_mobile }) {
               <div>Public</div>
               <div className="norm-text">Open To All Adults</div>
             </div>
-            <div className="link">
+            <div
+              className="link"
+              onClick={() => {
+                window.open(ticket_url);
+              }}
+            >
               <div>GET YOUR TICKET NOW</div>
             </div>
           </div>

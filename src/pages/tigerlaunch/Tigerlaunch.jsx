@@ -77,14 +77,14 @@ export default function TigerLaunchPage({ win_width, win_height, is_mobile }) {
           <ParallaxLayer
             sticky={{
               start: 0.4,
-              end: 1,
+              end: is_mobile?0.85:1,
             }}
             factor={0.5}
             onClick={incrementPage}
           >
             <div
               className="title"
-              style={{ fontSize: "64px", top: "-36px", position: "relative" }}
+              style={{ fontSize: "64px", top: "0px", position: "relative" }}
             >
               UNICON x TIGERLAUNCH 2022
             </div>
@@ -132,14 +132,14 @@ export default function TigerLaunchPage({ win_width, win_height, is_mobile }) {
           <ParallaxLayer
             sticky={{
               start: 2.4,
-              end: 3,
+              end: is_mobile?2.7:3,
             }}
             factor={0.5}
             onClick={incrementPage}
           >
             <div
               className="title"
-              style={{ fontSize: "64px", top: "-36px", position: "relative" }}
+              style={{ fontSize: "64px", top: "0px", position: "relative" }}
             >
               TIMELINE
             </div>
@@ -167,7 +167,7 @@ export default function TigerLaunchPage({ win_width, win_height, is_mobile }) {
           >
             <div
               className="title"
-              style={{ fontSize: "64px", top: "-36px", position: "relative" }}
+              style={{ fontSize: "64px", top: "0px", position: "relative" }}
             >
               PRIZES
             </div>

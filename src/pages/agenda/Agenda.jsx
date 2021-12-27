@@ -2,13 +2,42 @@ import Topbar from "../../components/topbar/Topbar";
 import Footer from "../home/footer/Footer";
 import TicketOverlay from "../../components/ticketOverlay/TicketOverlay"
 import Particles from "react-tsparticles";
-import { useEffect, useState,useRef } from "react";
-import { agendaConsts } from "./AgendaConstants";
+import { useEffect, useState,useRef, useMemo } from "react";
+import { throttle } from "lodash";
+import { Link } from "react-router-dom";
+import { agendaConsts_kv } from "./AgendaConstants";
+import { speakerInfo2022_kv } from "../speakers/SpeakerInfo";
 import { useSpring, animated } from "react-spring";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "./Agenda.scss";
 
+
+const dict2arr = (dict) =>{
+  let arr = []
+  for (var key in dict){
+    console.log( key, dict[key] );
+    // if (!("imgsrc" in dict)) continue
+    let toAdd = dict[key]
+    toAdd["id"] = key
+    arr.push(toAdd)
+  }
+
+  return arr
+}
 export default function Agenda({ win_width, win_height, is_mobile }) {
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+  function handleResize() {
+    setDimensions({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+  }
+  const throttleResizeHandler = useMemo(() => throttle(handleResize, 200), []);
+  window.addEventListener("resize", throttleResizeHandler);
+
   const [day, setDay] = useState(1);
   const parallaxRef = useRef(); //true
 
@@ -25,16 +54,91 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
     let curObj = new Date()
     // console.log(curObj<startObj)   // works
     let isActive = curObj >= startObj && curObj <= endObj
+
+    // Now for speakers
+
+    const pop_speakers = (val) => {
+      let arr = []
+      console.log(val)
+      for(let x in val){
+        console.log(x)
+        let id = val[x]
+        let speakerObj = speakerInfo2022_kv[id]
+        speakerObj['id'] = id
+        arr.push(speakerObj)
+      }
+      return arr
+    }
+
+    const pop_imgs = (val) => {
+      let arr = []
+      for(let x in val){
+        let id = val[x]
+        let speakerObj = speakerInfo2022_kv[id]
+        if ("imgsrc" in speakerObj){
+          speakerObj['id'] = id
+          arr.push(speakerObj)
+        }
+      }
+      return arr
+    }
+
+    // speakerInfo2022_kv
+    let hasSpeakers = "speakerIds" in val && (val["speakerIds"].length > 0)
+    let speakers = hasSpeakers?pop_speakers(val["speakerIds"]):null
+
+    let isJudging = val.isJudging?true:false;
+
+    let withImgs = hasSpeakers?pop_imgs(val["speakerIds"]):null
+
+    let pushImgDown = (is_mobile && dimensions.width < 700) || (!is_mobile && dimensions.width < 952)
+
+    let baseURL = "/speakers"
+
     return (
       <div
         className={`agendaItem  ${isActive? "active":""} `}
         onMouseEnter={() => setExpand(true)}
         onMouseLeave={() => setExpand(false)}
       >
-        <div className="agenda-title">{val["topic"]}</div>
-        <div className={`agenda-time`}>
-          {just_time(startObj)} - {just_time(endObj)}
+        <div className="agenda-brief">
+          <div className="agenda-title">{val["topic"]}</div>
+          <div className={`agenda-time`}>
+            {just_time(startObj)} - {just_time(endObj)}
+          </div>
+          {
+            speakers && (
+              <div className={`agenda-speakers`}>
+                {isJudging?"Judges: ":"Speakers: "} 
+                {speakers.map((item,idx)=>(
+                  <>
+                  <a target="_blank" key={item.id} className="speaker-link" href={item.personalLink}>
+                      {item.title}({item.info})
+                  </a>
+                  {(idx != speakers.length - 1) && (
+                    <>
+                    {", "}
+                    </>
+                  )}
+                  </>
+                ))}
+              </div>
+            )
+          }
+          
+          { withImgs && (
+              <div className={`agenda-speaker-imgs ${pushImgDown?"down":""}`}>
+                {withImgs.map((item,idx)=>(
+                  <Link key={item.id} className="speaker-link" to={`${baseURL}/${item.id}`}>
+                      <img src={item.imgsrc} />
+                  </Link>
+                ))}
+              </div>
+            )
+          }
+          
         </div>
+        
         {isExpanded && val["description"] && (
           <div className="description">{val["description"]}</div>
         )}
@@ -44,8 +148,8 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
 
   const DayAgenda = (props) => {
     let day = props.day || 1;
-    let agenda = agendaConsts[day];
-    return agenda.map((val) => <AgendaItem val={val} />);
+    let agenda = dict2arr(agendaConsts_kv[day]);
+    return agenda.map((val) => <AgendaItem key={val.id} val={val} />);
   };
 
   return (

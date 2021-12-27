@@ -2,13 +2,14 @@ import Topbar from "../../components/topbar/Topbar";
 import Footer from "../home/footer/Footer";
 import Particles from "react-tsparticles";
 import TicketOverlay from "../../components/ticketOverlay/TicketOverlay";
+//https://flaviocopes.com/react-router-data-from-route/
 import { useEffect, useState, useMemo, useRef, createRef } from "react";
-import { Link } from "react-router-dom";
-import { throttle } from "lodash";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { set, throttle } from "lodash";
 import { ReactCSSTransitionGroup } from "react-transition-group";
 import "./SpeakersPage.scss";
 
-import { speakerInfo2021, speakerInfo2022 } from "./SpeakerInfo";
+import { speakerInfo2021_kv, speakerInfo2022_kv } from "./SpeakerInfo";
 
 // const uniconDP =
 //   "https://instagram.fsin5-1.fna.fbcdn.net/v/t51.2885-19/s320x320/244412855_1186787335131880_688207572625348860_n.jpg?_nc_ht=instagram.fsin5-1.fna.fbcdn.net&_nc_ohc=4sY4bxNQescAX8yxB0i&edm=ABfd0MgBAAAA&ccb=7-4&oh=6089230ed54c72498ab5c9f4b2a44b88&oe=6188F921&_nc_sid=7bff83";
@@ -17,9 +18,14 @@ const uniconDP = "/assets/images/uniconInstaDp.jpg";
 
 const uniconInsta = "https://www.instagram.com/nesunicon/";
 
-const ProfilePic = ({ strokeWidth }) => {
+const speaker_base_url = "/speakers"
+
+const ProfilePic = ({ strokeWidth, width, height }) => {
   return (
-    <div className="profilePic">
+    <div className="profilePic" style={{
+      width:width?width:"",
+      height:height?height:""
+    }}>
       <div className="profilePic__ring">
         <InstaStoryCircle strokeWidth={strokeWidth} />
       </div>
@@ -59,45 +65,165 @@ const InstaStoryCircle = ({ strokeWidth = 3 }) => {
   );
 };
 
-export default function SpeakersPage({ win_width, win_height, is_mobile }) {
+const dict2arr = (dict) =>{
+  let arr = []
+  let idx = 0
+  for (var key in dict){
+    // console.log( key, dict[key] );
+    if (!("imgsrc" in dict[key])){
+      continue
+    }
+    let toAdd = dict[key]
+    toAdd["id"] = key
+    toAdd['idx'] = idx
+    arr.push(toAdd)
+    idx += 1
+  }
+  // console.log(arr)
+  return arr
+}
+
+
+
+export default function SpeakersPage({ win_width, win_height, is_mobile, has_id }) {
+  const history = useHistory() 
+
+  const change_url = (url) => {
+    console.log(`New url: ${url}`)
+    // history.pushState(null, 'UNICON 2022 | Largest Student Entrepreuneurship Event in SEA', url);
+    history.push(url)
+  }
+  const change_url_by_idx = (idx) => {
+    if(year == 2022){
+      change_url(`${speaker_base_url}/${speakerInfo2022[idx]["id"]}`)
+    } else {
+      change_url(`${speaker_base_url}/${speakerInfo2021[idx]["id"]}`)
+    }
+  }
+  
+  let speakerInfo2022 = dict2arr(speakerInfo2022_kv)
+  let speakerInfo2021 = dict2arr(speakerInfo2021_kv)
+  const url_params = useParams()
+  let url_id = "/speakers"
+  let init_year = 2022
+  let init_list = speakerInfo2022
+  let init_curpost = 0
+  let init_enterpost = false
+  // if ("id" in url_params){
+  //   url_id = url_params["id"]
+  //   console.log(`url_id: ${url_id}`)
+  //   if (url_id in speakerInfo2021_kv){
+  //     init_year = 2021
+  //     init_list = speakerInfo2021
+  //     init_curpost = speakerInfo2021_kv[url_id].idx
+  //     init_enterpost = true
+  //   } else if (url_id in speakerInfo2022_kv) {
+  //     init_curpost = speakerInfo2022_kv[url_id].idx
+  //     init_enterpost = true
+  //   } else {
+  //     has_id = false
+  //   }
+  // }
+  console.log(`has_id: ${has_id}`)
+  console.log(`init_curpost: ${init_curpost}`)
   const postListRef = useRef(null); //true
-  const [year, setYear] = useState(2022);
+  const [year, setYear] = useState(init_year);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
-  // console.log("dimensions");
-  // console.log(dimensions);
-  const [speakerList, setSpeakerList] = useState(speakerInfo2022);
-  const [enterPost, setEnterPost] = useState(false);
-  const [curPost, setCurPost] = useState(0);
-  // console.log(`curPost: ${curPost}`);
-  // let curPost = 0
+  const [speakerList, setSpeakerList] = useState(init_list);
+  const [enterPost, setEnterPost] = useState(init_enterpost);
+  const [curPostIdx, setCurPostIdx] = useState(init_curpost);
   const postRefs = useRef([]);
   let postlistEl = null;
   let postlistOffsetTop = 0;
   postRefs.current = Array(speakerList.length)
     .fill()
     .map((_, i) => postRefs.current[i] || createRef());
+  
+  const change_list = (this_year) => {
+    console.log(`Changing List: ${this_year} vs ${year}`)
+    if (this_year != year){
+      setYear(this_year)
+      if (this_year == 2021) {
+        setSpeakerList(speakerInfo2021);
+      } else {
+        setSpeakerList(speakerInfo2022);
+      }
+    }
+  }
+
+  const init_from_url = () => {
+    if ("id" in url_params){
+      url_id = url_params["id"]
+      console.log(`url_id: ${url_id}`)
+      if (url_id in speakerInfo2021_kv){
+        change_list(2021)
+        setCurPostIdx(speakerInfo2021_kv[url_id].idx)
+        setEnterPost(true)
+      } else if (url_id in speakerInfo2022_kv) {
+        change_list(2022)
+        setCurPostIdx(speakerInfo2022_kv[url_id].idx)
+        setEnterPost(true)
+      } else {
+        // GO BACK to speakers
+        console.log(`GO BACK TO SPEAKERS`)
+        has_id = false
+        setEnterPost(false)
+        change_url(speaker_base_url)
+      }
+    } else {
+      setEnterPost(false)
+    }
+  }
+
+  useEffect(()=>{
+    init_from_url()
+  })
+  
+
+  useEffect(()=>{
+    if (is_mobile){
+      if (has_id){
+        open_info_mobile(curPostIdx)
+      } else {
+        closeMoreInfo()
+      }
+    }
+  },[enterPost])
+
+  const go_to_img_scroll = (idx) => {
+    let curPost = postRefs.current[idx].current;
+    console.log(curPost);
+    let curTop = curPost.offsetTop;
+    postlistEl.scrollTo(0, curTop - postlistOffsetTop);
+  }
+
+  const open_info_mobile = (idx) => {
+    go_to_img_scroll(idx)
+
+    const post_list = postListRef.current;
+    post_list.classList.add("active");
+  }
+
+    // init over
+    // i dont need mobile version to have that traceback
   const setOpenMoreInfo = (idx) => {
     console.log("setOpenMoreInfo");
     if (is_mobile) {
-      let curPost = postRefs.current[idx].current;
-      console.log(curPost);
-      let curTop = curPost.offsetTop;
-      postlistEl.scrollTo(0, curTop - postlistOffsetTop);
-
-      const post_list = postListRef.current;
-      post_list.classList.add("active");
+      open_info_mobile(idx)
     } else {
       setEnterPost(true);
-      setCurPost(idx);
+      setCurPostIdx(idx);
     }
+    change_url_by_idx(idx)
   };
 
   const closeMoreInfo = () => {
     const post_list = postListRef.current;
     post_list.classList.remove("active");
+    change_url(speaker_base_url)
   };
 
   //   React.useEffect(() => {
@@ -120,7 +246,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
   window.addEventListener("resize", throttleResizeHandler);
 
   const Post = ({ id, item, year }) => {
-    console.log("POST")
+    // console.log("POST")
     let descriptionRef = useRef(null)
     let descripWrapRef = useRef(null)
     let moreRef = useRef(null)
@@ -227,7 +353,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
         <div className="post-list">
           {vals.map((item, index) => (
             <div className="refWrap" ref={postRefs.current[index]}>
-              <Post key={index.toString()} id={index} item={item} year={year} />
+              <Post key={item.id} id={item.id} item={item} year={year} />
             </div>
           ))}
         </div>
@@ -235,13 +361,28 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
     );
   };
 
-  const PostOverlay = ({ initIdx, vals }) => {
-    console.log(`idx: ${initIdx}`);
-    const [curPostIdx, setCurPostIdx] = useState(parseInt(initIdx));
+  const PostOverlay = ({ vals }) => {
+    console.log(`idx: ${curPostIdx}`);
+    init_from_url()
+    // const [curPostIdx, setCurPostIdx] = useState(parseInt(initIdx));
+    // let curPostIdx = parseInt(curPost)//initIdx)
     // const [isImgLoaded, setImgLoaded] = useState(false)
     const [imgAP, setImgAP] = useState(1);
     const imgRef = useRef(null);
     let curPost = vals[curPostIdx];
+    const go_next = () => {
+      setCurPostIdx(curPostIdx + 1)
+      change_url_by_idx(curPostIdx + 1)
+    }
+    const go_prev = () => {
+      setCurPostIdx(curPostIdx - 1)
+      change_url_by_idx(curPostIdx - 1)
+    }
+    const leave_overlay = () => {
+      setEnterPost(false)
+      change_url(speaker_base_url)
+    }
+
     console.log(curPost);
     // useEffect(()=>{
 
@@ -265,7 +406,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
       if (!img){
         return
       }
-      console.log(`Ratio: ${Math.min(img.width / img.height, 1)}`)
+      // console.log(`Ratio: ${Math.min(img.width / img.height, 1)}`)
       setImgAP(Math.min(img.width / img.height, 1));
     }, []);
 
@@ -320,7 +461,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
             // console.log(e.target);
             // console.log(e.currentTarget)
             if (e.target !== e.currentTarget) return;
-            setEnterPost(false);
+            leave_overlay();
           }}
         >
           <button
@@ -330,7 +471,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
               position: "absolute",
               right: "0",
             }}
-            onClick={() => setEnterPost(false)}
+            onClick={() => leave_overlay()}
           >
             <div className="btn-pad">
               <svg
@@ -354,13 +495,13 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
           {isLast == false && (
             <NextPrevBtn
               isNext={true}
-              onClick={() => setCurPostIdx(curPostIdx + 1)}
+              onClick={() => go_next()}
             />
           )}
           {isFirst == false && (
             <NextPrevBtn
               isNext={false}
-              onClick={() => setCurPostIdx(curPostIdx - 1)}
+              onClick={() => go_prev()}
             />
           )}
         </div>
@@ -403,18 +544,21 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
             </div>
             <div className="overlay-post__details">
               <div className="post__header">
-                <ProfilePic strokeWidth={8} />
+                <ProfilePic strokeWidth={8} height="75%"/>
                 <div>UNICON 2022</div>
-                <div className="socialLogo">
-                  <img
-                    src={"/assets/images/linkedin-logo.svg"}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(curPost.personalLink);
-                      // window.location.href = "https://www.linkedin.com/company/unicon2021/";
-                    }}
-                  />
-                </div>
+                {curPost.personalLink && (
+                  <div className="socialLogo">
+                    <img
+                      src={"/assets/images/linkedin-logo.svg"}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(curPost.personalLink);
+                        // window.location.href = "https://www.linkedin.com/company/unicon2021/";
+                      }}
+                    />
+                  </div>
+                )}
+                
               </div>
               <div className="post__info">
                 {curPost.title ? (
@@ -495,13 +639,10 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
     );
   };
 
-  const GridItem = ({ id, item }) => {
-    let itemKey = parseInt(id);
-    // console.log(`itemKey: ${itemKey}`)
+  const GridItem = ({ idx, item }) => {
+    let itemKey = parseInt(idx);
     const [isHover, setHover] = useState(false);
-
     let haveImg = item.imgsrc && item.imgsrc.length > 0;
-
     return (
       <div
         className={"grid-item"}
@@ -518,11 +659,6 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
         onClick={() => {
           if (haveImg) {
             setOpenMoreInfo(itemKey);
-            // if (is_mobile) {
-            //   setHover(!isHover);
-            // } else {
-            //   setOpenMoreInfo(itemKey);
-            // }
           }
         }}
       >
@@ -555,9 +691,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
   const GridRow = (props) => {
     let rowKey = parseInt(props.id);
     let padding = !is_mobile ? 256 : 0;
-    let scrollbarWidth = 10; //!is_mobile?10:0
-    // console.log(`scrollbarWidth: ${scrollbarWidth}`)
-    // console.log(`rowKey: ${rowKey}`)
+    let scrollbarWidth = 10;
     let vals = props.vals;
     let numPerRow = props.numPerRow;
     if (vals.length < numPerRow) {
@@ -575,8 +709,10 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
       >
         {vals.map((item, index) => (
           <GridItem
-            key={(rowKey + index).toString()}
-            id={rowKey + index}
+            // key={(rowKey + index).toString()}
+            // id={rowKey + index}
+            key={item.id}
+            idx={rowKey + index}
             item={item}
           />
         ))}
@@ -641,7 +777,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
               }}
             >
               <div className="profileDetails__lcol">
-                <ProfilePic />
+                <ProfilePic width="75%"/>
               </div>
               <div className="profileDetails__rcol">
                 <h2 className="username">Our UNICON Speakers</h2>
@@ -763,7 +899,7 @@ export default function SpeakersPage({ win_width, win_height, is_mobile }) {
         </div>
       )}
       {!is_mobile && enterPost && (
-        <PostOverlay vals={speakerList} initIdx={curPost} />
+        <PostOverlay vals={speakerList}  />
       )}
     </div>
   );

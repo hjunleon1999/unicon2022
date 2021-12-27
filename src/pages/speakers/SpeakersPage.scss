@@ -26,7 +26,8 @@ $speaker-height:320px;
 
 .profilePic {
     position: relative;
-    height:75%; //270px;
+    
+    // width:75%; //270px;
     // width: 75%;//270px;
     div{
         display: flex;
@@ -80,7 +81,7 @@ $speaker-height:320px;
     //     position: absolute;
     // }
     .SpeakerPage__content{
-        padding: 128px;
+        padding: 64px 128px;
 
     }
     &.mobile{
@@ -291,7 +292,7 @@ $speaker-height:320px;
     z-index: -1;
     overflow: hidden;
     // transition: left 0.75s;
-    transition: all 0.75s ease-in-out;
+    transition: all 0.25s ease-out;//-out;
     transform: translateX(100%);
     &.active{
         transform: translateX(0);

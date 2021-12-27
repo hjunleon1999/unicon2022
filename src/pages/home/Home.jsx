@@ -63,6 +63,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
   let shootStarCanvas = null;
   // let isParallaxContainer = false//useOnScreen(parallaxRef);
 
+  const ticket_url = "https://www.tickettailor.com/events/nusentrepreneurshipsociety/602704"
   const FrontPanel = () => {
     return (
       <div className={`frontPanel ${is_mobile ? "center" : ""}`}>
@@ -78,7 +79,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
           style={{ filter: "drop-shadow(0 0 0.75rem black)" }}
           onClick={() => {
             window.open(
-              "https://www.tickettailor.com/events/nusentrepreneurshipsociety/1052109/o/35d5891"
+              ticket_url
             );
           }}
         >
@@ -488,7 +489,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
                 <>
                   <div className="cardRow">
                     <ImageCard
-                      title={"Gloabl Outreach"}
+                      title={"Global Outreach"}
                       info={globalOutreachTxt}
                       image={"/assets/images/why1.jpg"}
                       styles={{
@@ -537,7 +538,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
                 <>
                   <div className="cardRow">
                     <ImageCard
-                      title={"Gloabl Outreach"}
+                      title={"Global Outreach"}
                       info={globalOutreachTxt}
                       image={"/assets/images/why1.jpg"}
                       styles={{

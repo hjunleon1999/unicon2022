@@ -59,6 +59,9 @@ $topbar-height: 84px;
 }
 
 .topbarLinks {
+  display: flex;
+  align-items: center;
+  text-align: center;
   .topbarLink {
     color: inherit;
     margin-right: 10px;
@@ -87,6 +90,7 @@ $topbar-height: 84px;
     // top:-400px;
     z-index:69;
     transition: transform 2s ease-in;
+    flex-direction: column;
     // transform: translateY(-400px);
     // margin-top: -400px;
     a {

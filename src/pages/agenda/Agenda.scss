@@ -65,16 +65,60 @@
     padding: 16px 48px;
     cursor:pointer;
     transition: height 1s;
+    & > div{
+        margin-bottom: 8px;
+    }
+    .agenda-brief{
+        position: relative;
+        & > div{
+            margin-bottom: 8px;
+        }
+    }
     &.active,&:hover{
         background: $beige-1;
         color: $maroon;
         .agenda-title{
             color: red;
         }
+        .agenda-speakers{
+            color: $maroon;
+            a{
+                color: $maroon;
+            }
+        }
     }
     .agenda-title{
         font-size: $h2-fs;
         color: $orange-2;
+    }
+    .agenda-speakers{
+        color: $white-1;
+        a{
+            color: $white-1;
+        }
+    }
+    .agenda-speaker-imgs{
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        &.down{
+            position: relative;
+            .speaker-link{
+                margin-left: 0px;
+                margin-right: 8px;
+            }
+        }
+        .speaker-link{
+            height: 48px;
+            width: 48px;
+            margin-left: 8px;
+        }
+        img{
+            height: 100%;
+            width: 100%;    
+            border-radius: 64px;        
+        }
     }
     
 }

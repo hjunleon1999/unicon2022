@@ -75,8 +75,11 @@ function App() {
         <Route path ="/contact">
           <ContactUsPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
         </Route>
+        <Route path ="/speakers/:id">
+          <SpeakersPage win_width = {width} win_height = {height}  is_mobile={isMobile} has_id={true} />
+        </Route>
         <Route path ="/speakers">
-          <SpeakersPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
+          <SpeakersPage win_width = {width} win_height = {height}  is_mobile={isMobile} has_id={false}/>
         </Route>
         <Route path ="/privacy">
           <PrivacyPage win_width = {width} win_height = {height}  is_mobile={isMobile} />
