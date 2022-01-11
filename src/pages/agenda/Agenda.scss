@@ -73,6 +73,10 @@
         & > div{
             margin-bottom: 8px;
         }
+        
+        .agenda-venue{
+            margin: 4px 0px;
+        }
     }
     &.active,&:hover{
         background: $beige-1;

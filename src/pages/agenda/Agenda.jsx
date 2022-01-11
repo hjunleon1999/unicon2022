@@ -106,14 +106,14 @@ export default function Agenda({ win_width, win_height, is_mobile }) {
           {val['setting'] && (
             <div className="agenda-venue">
               
-              Online venue: {o_venue}
+              Online Venue: <span style={{textDecoration: "underline"}}>{o_venue}</span>
               
             </div>
           )}
           {val['setting'] && val['setting']=='physical' && (
             <div className="agenda-venue">
               
-              Physical Venue:  {p_venue}
+              Physical Venue:  <span style={{textDecoration: "underline"}}>{p_venue}</span>
               
             </div>
           )}

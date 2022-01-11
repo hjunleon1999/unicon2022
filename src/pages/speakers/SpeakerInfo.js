@@ -1,4 +1,17 @@
 export let speakerInfo2022_kv = {
+    "08076c07-0770-4b1a-b5e6-f06afdd867c2":{
+        title:"Rachel Lim",
+        subtitle:"Co-Founder",
+        info: "Love, Bonito",
+        personalLink:"https://www.linkedin.com/in/rachel-lim-25b3b262/",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Fanglin Wang.jpg",
+        imgFull:"/assets/images/speakers/2022/ignite/LB Rachel Lim Profile Image.jpg",
+        description: [
+            "Rachel Lim co-founded what was to be Love, Bonito at a tender age of 19. She started her own online fashion business when e-commerce was at its infancy and grew the blogshop into a multi-million dollar global brand in just over a decade.",
+            "Her desire to empower women through thoughtful creations and memorable experiences has propelled her to set up international brick-and-mortar stores, expanded the brand into international waters, making it the largest omnichannel women’s fashion label in Southeast Asia."
+        ]
+    }
+    ,
     "71c194b7-078e-4f03-95af-a4a3cf8c2482":{
         title:"Dr Fanglin Wang",
         subtitle:"Head of R&D Department",
@@ -43,20 +56,28 @@ export let speakerInfo2022_kv = {
         title:"Sesha Kishore",
         subtitle:"Founder",
         info: "SK DeepTech",
-        // personalLink:"https://www.linkedin.com/in/leon-liang-983a52b2/?originalSubdomain=sg",
-        // imgsrc:"",
-        // imgFull:"",
-        // description: ["Leon graduated from NUS business school in 2016. He started his career in Underwriters Laboratory as a Relationship Manager, helping the Tier 1 banks in APAC get certified for Mobile Payment platforms. Later he moved into the Market Research industry with Euromonitor as a Key Account Manager, helping large companies like Coca-Cola\
-        //  and Unilever realise their strategic objectives. He joined the start-up Respiree as a product manager \
-        //  in 2019 and is now heading the product development team."]
+        personalLink:"https://www.linkedin.com/in/leon-liang-983a52b2/?originalSubdomain=sg",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/kishore-1.png",
+        imgFull:"/assets/images/speakers/2022/innovation/kishore-1.png",
+        description: [
+            "Kishore is an experienced professional having Masters in Engineering from USA and certified PMP and PSM. He worked in various fortune 500 companies and managed challenging IT projects.",
+            "Delivered numerous webinars in Emerging Technologies and founded two start ups in India into Deep Tech areas with Solution-as-a-Service business model in Education and Healthcare sectors.",
+            "He is serving as a sectorial committee member in the Education and Skill development in ANZIBC (Australia New zealand India Business chamber).",
+            "As CEO of SK Deep Tech his passion is to create a world class brand to offer End-to-End Digital Transformation solutions to businesses in the APAC region.",
+        ]
     },
     "0f25f452-d5b4-40bb-826a-000c0490ead4":{
         title:"Mark Yong",
         subtitle:"CEO & Co-Founder",
         info:"Garuda Robotics",
         personalLink:"https://www.linkedin.com/in/markctyong/?originalSubdomain=sg",
-        // imgsrc:"",
-        // imgFull:"",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Garuda Robotics 202000310.jpeg",
+        imgFull:"/assets/images/speakers/2022/innovation/Garuda Robotics 202000310.jpeg",
+        description: [
+            "Mark is CEO and co-founder at Garuda Robotics, a Singapore-headquartered developer of enterprise and government drone solutions.",
+            "He has 20 years of robotics experience developing systems in domains ranging from Urban Search and Rescue to STEM education.",
+            "From 2006 to 2014, Mark was an award-winning lecturer in the School of Computer Engineering at Nanyang Technological University. He was trained in computer engineering, computer science and economics at Carnegie Mellon University and the University of Michigan."
+        ]
     }
     ,
     "5de712e6-0e33-4886-b786-614d2567d5c8":{
@@ -146,16 +167,33 @@ export let speakerInfo2022_kv = {
     }
     ,
     "01e8cfb2-8d05-4056-80fb-0e9f2d14857a":{
-        title:"Alan Hellawell ",
+        title:"Alan Hellawell",
         subtitle:"Founder and Host",
-        info:"Indo Tekno Podcast",
+        info:"Gizmo Advisors",
         personalLink:"https://www.linkedin.com/in/alan-hellawell-96a3263/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/alan goh.jpg",
-        // imgFull:"/assets/images/speakers/2022/firststeps/alan goh.jpg",
-        // description:[
-        //     "Alan received his B.Eng from Nanyang Technological University with specification in Mechatronic and a graduate diploma in Medtech Manufacturing. He started his research career in A*Star, followed by development in Delphi Automotive.",
-        //     "Before starting NDR, Alan was involved in commercialization and incubation of Medtech/Biotech start-ups in AITventures. Alan is appointed Chairman of APACMed Start-up committee and multiple Sports and Health organizations."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Alan Hellawell.jpeg",
+        imgFull:"/assets/images/speakers/2022/firststeps/Alan Hellawell.jpeg",
+        description:[
+            "Alan’s past operational roles span companies such as Netscape Communications, Lucent Technologies, and Sea Group, the latter being Southeast Asia’s first NYSE-listed internet company.",
+            "His responsibilities across these roles included product management, strategy, partnerships, in-bound and outbound investment, M&A, investor relations and other areas. Alan has worked regularly with management across other leading Southeast Asian internet companies and global leaders such as Tencent, Google, Facebook, Amazon and Paypal.",
+            "In addition to the region’s leading PE, VC and investment banking firms. Alan has supported many of China's largest internet and e-commerce companies from their early, private stages through IPO and beyond.",
+            "Alan graduated from Princeton Unviersity, and also has an MBA and Masters in East Asian Studies from Stanford University."
+        ]
+    }
+    ,
+    "937ffda3-bf24-45c2-8c4e-43814d5f3ca6":{
+        title:"JJ Chai",
+        subtitle:"CEO & Co-founder",
+        info:"Rainforest",
+        personalLink:"https://www.linkedin.com/in/jjchai/",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/JJ profile.jpeg",
+        imgFull:"/assets/images/speakers/2022/firststeps/JJ profile.jpeg",
+        description:[
+            "JJ Chai is the co-founder and CEO of Rainforest, Asia’s leading e-commerce brand aggregator. Rainforest buys and grows consumer e-commerce brands.",
+            "Prior to founding Rainforest, JJ advised startups founders in the scale-up stage, as xto10x’s SE-Asia’s MD. He previously worked with the founders at Carousell to scale up from a pre-revenue startup to become SE-Asia’s largest online classifieds platform.",
+            "At Carousell he led up various portfolios across international expansion, revenue, growth and strategy. Before joining Carousell, JJ was the SE-Asia Managing Director for Airbnb.",
+            "JJ joined as the first Airbnb employee in Southeast Asia and helped chart Airbnb’s rapid Asia growth. JJ was also a former junior partner at the management consulting firm McKinsey & Company."
+        ]
     }
     ,
     "4f399780-9ddd-4d66-a4ee-0d8824de11cd":{
@@ -197,14 +235,18 @@ export let speakerInfo2022_kv = {
     },
     "7f33a703-eaaa-4334-9397-a14563ab5693":{
         title:"Daniel Nia",
-        subtitle:"Director",
-        info:"HOPE Technik",
+        subtitle:"Deputy CEO",
+        info:"HOPE Technik Pte Ltd",
         personalLink:"https://www.linkedin.com/in/daniel-nia-128008b/?originalSubdomain=sg",
         // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Wong Choon Yue.png",
         // imgFull:"/assets/images/speakers/2022/robotics/Wong Choon Yue.png",
-        // description:["Dr Wong Choon Yue has designed and developed the EDGAR series of humanoid robots. \
-        // At this time, he is the Director of MAJU Robotics Pte Ltd, a company that juxtaposes robotics and artistry \
-        // to create inventions that people enjoy interacting with. He is passionate about embracing the spirit of DIY."]
+        description:[
+            "Daniel is Deputy Chief Executive Officer at HOPE Technik Pte Ltd, an engineering solution provider specialising in niche areas of high performance engineering, with departments in Unmanned systems, Professional Service Robotics, Defence, Bio-medical, Smart Logistics and Special Vehicle arenas.",
+            "As Deputy CEO, Daniel works closely with the CEO to align the team around the strategic objectives of HOPE Technik, ensuring that all of the efforts deliver consistently against these objectives in a tangible, efficient and effective manner. He is also responsible for driving the development, refinement and implementation of HOPE Technik’s business strategy.",
+            "Daniel joined HOPE Technik in 2015 as a project manager where he managed several projects such as unmanned aerial vehicles (UAVs), fuel cell systems and robotics automation. His professional knowledge and strong leadership abilities shone through and he was appointed as Business Unit Head of Technik2 in June 2016",
+            "Since then, he has tendered and won a number of high profile contracts for HOPE Technik with clients from both government and private agencies. With his technical expertise and acute business acumen, the business unit has seen increased profitability.",
+            "With a passion for engineering, Daniel continues in his goal to refine Hope Technik to deliver innovative and feasible engineering solutions to do the seemingly impossible, possible."
+        ]
     }
     ,
     "0b78834f-d32b-444e-9cc9-35628b5761b4":{
@@ -238,8 +280,8 @@ export let speakerInfo2022_kv = {
         subtitle:"Co-Founder",
         info:"Skillo",
         personalLink:"https://www.linkedin.com/in/felix-tan-skilio/",
-        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/felix.jpg",
-        imgFull:"/assets/images/speakers/2022/student/felix.jpg",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/felix.JPG",
+        imgFull:"/assets/images/speakers/2022/student/felix.JPG",
         description:[
             "Felix is the Cofounder & CEO of Skilio (www.skilio.co), an edtech startup that helps youth build up a future-ready skills portfolio. He is passionate about the space of youth development and education.",
             "As a student entrepreneur, he won the Singapore chapter of the Global Student Entrepreneur Award organized by the Entrepreneur’s Organisation in January 2020. Felix also represented Singapore in the global finals of the Startup World Championship in Montreal and is the Silver Awardee of the National Youth Entrepreneur Awards organized by the Action Community for Entrepreneurship (ACE).",
@@ -271,6 +313,18 @@ export let speakerInfo2022_kv = {
         description:[
             "Shobhit is the Co-founder and President of Near which is a B2B SaaS platform providing data intelligence on online and offline consumer behavior. Near has raised $134 million from marquee investors such as Sequoia Capital, JP Morgan, Telstra, and Cisco and has a presence across North America, Europe, Asia, and Australia.",
             "Prior to Near, Shobhit worked with InMobi, Qualcomm Ventures, and Morgan Stanley. Shobhit holds an MBA from the Indian Institute of Management, Bangalore, and a Bachelor’s degree from IIT BHU. He is an early-stage investor in multiple startups. Shobhit is an avid traveler, a yoga practitioner and loves nothing more than spending time with his two sons."
+        ]
+    },
+    "acb70642-d0ae-4398-987c-0bb46f60f21c":{
+        title:"Prantik Mazumdar",
+        subtitle:"Board Member",
+        info:"TiE",
+        personalLink:"https://www.linkedin.com/in/prantikmazumdar/?originalSubdomain=sg",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Pantik Mazumdar.jpg",
+        imgFull:"/assets/images/speakers/2022/saas/Pantik Mazumdar.jpg",
+        description:[
+            "Prantik is an entrepreneur, venture investor and acts as a Digital Transformation Catalyst in organizations to drive sustainable change and impact.",
+            "Currently, he is a Limited Partner at VC firms like Quest Ventures, HealthXCapital, Good Startup Fund, mentor and advisor to NUS Angel Ventures, Entrepreneur-In-Resident at INSEAD, and Board Member of TiE Singapore (The Indus Entrepreneurs)."
         ]
     }
     ,
@@ -361,14 +415,16 @@ export let speakerInfo2022_kv = {
     "2530002d-abe5-4a2d-8b50-b88ac8012f4a":{
         title:"Chris C. Anderson ",
         subtitle:"Managing Editor",
-        info:"Linkedin Asia",
+        info:"Gong.io",
         personalLink:"https://www.linkedin.com/in/chris77/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Martin Tang.jpeg",
-        // imgFull:"/assets/images/speakers/2022/securefund/Martin Tang.jpeg",
-        // description:[
-        //     "Martin began his investment banking career in 2007 with Lazard Singapore. He was part of the core deal team providing independent corporate finance advisory to corporate leaders in Southeast Asia.",
-        //     "Martin has worked on a myriad of asset disposal and restructuring transactions in the financial institutions sector working on more than US$3 billion worth of transactions in total."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Chris Profile Square Crop.jpg",
+        imgFull:"/assets/images/speakers/2022/securefund/Chris Profile Square Crop.jpg",
+        description:[
+            "A previous Top Voice on LinkedIn in Media with 105,000 followers, Chris is Managing Editor of the $7 billion valued startup, Gong.io. Prior to Gong, Chris was Managing Editor, Asia at LinkedIn based in Singapore and produced \"LinkedIn's Top Startups\" in 2020 and 2021 for Singapore and Indonesia. Before LinkedIn Chris dabbled in the banking and finance world as Head of Content at HSBC for Asia based out of Hong Kong.",
+            "Chris also held the role of Chief Content Officer at Hong Kong Esports where he built the video game media brand Game Media Asia over the course of two years.",
+            "Chris has spent many years leading editorial and content in a variety of digital startups in the U.S. and Hong Kong, and has worked in senior editorial roles in the media industry at Business Insider, HuffPost and CNN as well as lecturing on current events in News and media markets for Hong Kong Baptist University.",
+            "He now lives in the Silicon Valley, California, the world's beating heart of technology startups with his wife and daughter."
+        ]
     }
     ,
     "a9b79272-0f9b-4224-893d-5bd4b0c73112":{
@@ -376,33 +432,26 @@ export let speakerInfo2022_kv = {
         subtitle:"Co-Founder and CTO",
         info:"Ninja Van",
         personalLink:"https://www.linkedin.com/in/shaun-chong/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Hian Goh.jpg",
-        // imgFull:"/assets/images/speakers/2022/securefund/Hian Goh.jpg",
-        // description:[
-        //     "Hian co-founded Openspace with Shane Chesson in 2014. He sits on the Investment Committee, focuses on new growth strategies, \
-        //     and represents the firm on the Boards of some of our fastest growing investments, including Kumu, Nutrition Technologies, \
-        //     Love, Bonito and FreshKet. He also led the first institutional fundraising round for Gojek. He has a great deal of practitioner \
-        //     experience having founded and built Asian Food Channel, a 24-hour pay TV channel, which was sold to US media giant, Scripps Interactive in April 2013. \
-        //     He is currently active on the Board of the Singapore Science Centre and sits on the A*STAR portfolio management committee. \
-        //     Hian holds an MBA from INSEAD Singapore and a Law Degree from Trinity College, Oxford. "
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Shaun Chong.jpg",
+        imgFull:"/assets/images/speakers/2022/ASEAN/Shaun Chong.jpg",
+        description:[
+            "Shaun Chong is Ninja Van's Chief Technology Officer. As the technical Co-Founder, he is responsible for the digital fabric that powers Ninja Van’s proprietary systems, optimising the logistics process for Ninja Van’s regional customers.",
+            "Apart from overseeing Ninja Van's technology strategy, roadmap and vision, Shaun drives innovation through research & development activities and leverages emerging technologies to bring the newest innovations to the logistics vertical. When Shaun is developing the latest technology solutions, he is guided by the company’s goal of providing hassle-free delivery experiences for customers by ensuring that systems are built to be scalable, with a strong focus on data-driven decision making.",
+            "Prior to Ninja Van, Shaun was Lead Engineer at Nubefy, a technology startup focusing on cloud platforms and infrastructure.",
+            "Shaun graduated with a Bachelor of Science degree in Computer Engineering from the National University of Singapore. As a person who enjoys creating things, his love of tinkering has extended to his latest project of building Ninja Van’s very first pizza oven."
+        ]
     }
     ,
     "6e50ba82-3d0d-4e25-9d58-997da107bf9f":{
         title:"Dione Song",
-        subtitle:"Co-Founder & Partner",
-        info:"CEO",
+        subtitle:"CEO",
+        info:"Love, Bonito",
         personalLink:"https://www.linkedin.com/in/dionesong/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Hian Goh.jpg",
-        // imgFull:"/assets/images/speakers/2022/securefund/Hian Goh.jpg",
-        // description:[
-        //     "Hian co-founded Openspace with Shane Chesson in 2014. He sits on the Investment Committee, focuses on new growth strategies, \
-        //     and represents the firm on the Boards of some of our fastest growing investments, including Kumu, Nutrition Technologies, \
-        //     Love, Bonito and FreshKet. He also led the first institutional fundraising round for Gojek. He has a great deal of practitioner \
-        //     experience having founded and built Asian Food Channel, a 24-hour pay TV channel, which was sold to US media giant, Scripps Interactive in April 2013. \
-        //     He is currently active on the Board of the Singapore Science Centre and sits on the A*STAR portfolio management committee. \
-        //     Hian holds an MBA from INSEAD Singapore and a Law Degree from Trinity College, Oxford. "
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/LB Dione Song Profile Image.jpg",
+        imgFull:"/assets/images/speakers/2022/ASEAN/LB Dione Song Profile Image.jpg",
+        description:[
+            "Dione Song is a notable force in the modern consumer technology & retail industry and the rising star was recently promoted to spearhead Love, Bonito as CEO in April 2021. Before this, she held previous roles in the company as Chief Commercial Officer and Chief Operating Officer. She is responsible for the multi-million dollar brand’s vision, strategy, culture and growth."
+        ]
     }
     ,
     "e3972664-05a0-4959-9760-94880ebf0edf":{
@@ -486,13 +535,12 @@ export let speakerInfo2022_kv = {
         subtitle:"Product Lead",
         info:"Xendit",
         personalLink:"https://www.linkedin.com/in/yinhweelim/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Shawn Loh.jpg",
-        // imgFull:"/assets/images/speakers/2022/seedtounicorn/Shawn Loh.jpg",
-        // description:[
-        //     "Shawn Low is a co-founder at Better and part of the core leadership that built an integrated homeownership company from pre-revenue to a tech unicorn. In his pinnacle role as Head of Operations, Shawn led teams across Better’s core business lines (mortgages, real estate services) as well as corporate functions, comprising over 80% of Better’s workforce. During this time, Better grew 10X, achieved profitability, and was named LinkedIn’s #1 Start-Up in the US in 2020. In recognition of his contributions, Shawn was named to HousingWire's Insider list for 2020. Since relocating back to Singapore, Shawn is building his next venture while mentoring other startup founders. \
-        //     In his spare time, he enjoys helping people learn more about personal finance, playing competitive squash, \
-        //     and whipping up Singaporean food in his kitchen. "
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Hwee picture.jpg",
+        imgFull:"/assets/images/speakers/2022/seedtounicorn/Hwee picture.jpg",
+        description:[
+            "Hwee is a product lead at Xendit - a fintech platform that processes digital payments for businesses in Southeast Asia, like Grab, Wise and Traveloka. Hwee has been with Xendit since its seed stage, and was part of the initial crop of product managers growing Xendit's payment products.",
+            "She now leads a team of product managers focusing on core platform services. Hwee majored in Law in NUS and is an alumnus of NUS Overseas Colleges Shanghai."
+        ]
     }
     ,
     "538e524d-ea6a-4956-9ebd-695129e95074":{
@@ -569,40 +617,79 @@ export let speakerInfo2022_kv = {
         info:"Stripe",
         personalLink:"https://www.linkedin.com/in/itslilywu/",
         imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Lily Wu.jpeg",
-        imgFull:"/assets/images/speakers/2022/women/Lily Wu.jpeg",
+        imgFull:"/assets/images/speakers/2022/ASEAN/Lily Wu.jpeg",
         description:[
             "Lily Wu is currently the Startup Partner Lead, SEA at Stripe. Previously, she was immersed in the startup world where she bootstrapped two 7-figure businesses from the ground up. She expanded her 2nd startup, Austern International across APAC, US and Europe, in which she exited in 2018. She then went to become the Head of Programs for NewCampus, a Series A edutech startup based in Singapore as well as program managed H2 Ventures' accelerator program- Australia's largest fintech, big data and AI accelerator. ",
             "She is the founding ambassador of Future Females Singapore, a global organisation dedicated to helping female entrepreneurs get the resources and connections they need to succeed and often runs design thinking workshops for VCs and companies across APAC.",
             "Fun fact, she is also an illustrator, published author and has a black belt in Japanese martial arts, Taido."
         ]
+    },
+    "a9312074-5dba-4afc-902f-76e3da7cfe1a":{
+        title:"Dato’ Chevy Beh (CAIA)",
+        subtitle:"Founder & CEO",
+        info:"BookDoc",
+        personalLink:"https://www.linkedin.com/in/chevy-beh-13711034/",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Chevy Beh Profile Photo.jpg",
+        imgFull:"/assets/images/speakers/2022/ASEAN/Chevy Beh Profile Photo.jpg",
+        description:[
+            "Chevy Beh is a contributor to Forbes.com and FedEx Business Insights.com. He graduated  from the University of Virginia with a double major in Economics and East Asian Studies. Was  awarded the “Most Promising Entrepreneurship Award” at the 2012 Asia Pacific  Entrepreneurship Awards (APEA), Top Nominee for the “Ernst & Young’s Entrepreneur of  the Year” for two consecutive years 2013 & 2014, and “Great Entrepreneur” Brand Icon  Leadership Award 2015 by Brand Laureate.",
+            "In 2016, he was nominated for MIT Technology  Review, Innovators Under 35 Asia. He’s very passionate about Polo and was the first in Asia  ever awarded the National Inter-Collegiate American All Star in 2007. Beh is a frequent  speaker at healthcare, technology and leadership conferences, domestic as well as International.",
+        ]
+    },
+    "8e4b684e-c725-4cec-a975-4465d77600b1":{
+        title:"Ritchie Goenawan",
+        subtitle:"CMO, HR director",
+        info:"TaniHub",
+        personalLink:"https://www.linkedin.com/in/chevy-beh-13711034/",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Ritchie Goenawan Profile Pic (Jan 2022).JPG ",
+        imgFull:"/assets/images/speakers/2022/ASEAN/Ritchie Goenawan Profile Pic (Jan 2022).JPG",
+        description:[
+            "Ritchie is a growth scaler experienced in product & brand management, business development, operations, and large-scale leadership, across FMCG, E-Commerce, Agri-Tech, e-Grocery, Edu-Tech, Strategic Consulting.",
+            "He has 11+ years' experience across South-East Asia with Unilever, Boston Consulting Group, Lazada, Ruangguru and now, TaniHub, Indonesia's #1 Agri-Tech and e-Grocery start-up.",
+        ]
     }
     ,
     "13476b80-93a5-48a8-8a6e-8dfe21091511":{
         title:"Meryl Lim",
-        subtitle:"Founder",
+        subtitle:"Co-Founder",
         info:"Good Vibes",
         personalLink:"https://www.linkedin.com/in/meryl-lim-kaixian/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Lily Wu.jpeg",
-        // imgFull:"/assets/images/speakers/2022/women/Lily Wu.jpeg",
-        // description:[
-        //     "Lily Wu is currently the Startup Partner Lead, SEA at Stripe. Previously, she was immersed in the startup world where she bootstrapped two 7-figure businesses from the ground up. She expanded her 2nd startup, Austern International across APAC, US and Europe, in which she exited in 2018. She then went to become the Head of Programs for NewCampus, a Series A edutech startup based in Singapore as well as program managed H2 Ventures' accelerator program- Australia's largest fintech, big data and AI accelerator. ",
-        //     "She is the founding ambassador of Future Females Singapore, a global organisation dedicated to helping female entrepreneurs get the resources and connections they need to succeed and often runs design thinking workshops for VCs and companies across APAC.",
-        //     "Fun fact, she is also an illustrator, published author and has a black belt in Japanese martial arts, Taido."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/meryl_lim.jpg",
+        imgFull:"/assets/images/speakers/2022/women/meryl_lim.jpg",
+        description:[
+            "Meryl Lim is the founder of Good Vibes. Prior to Good Vibes, Meryl was a Partner at The KraftHeinz Company and was leading the Finance and Revenue Management Team for the Asia Pacific Region.",
+            "With her years of experience in the fast moving consumer goods (FMCG) industry coupled with her passion for sexual wellness and women empowerment, she hopes to bring more pleasure and hence happiness to our society and normalize sexual wellness as part of our overall wellbeing.",
+            "Founded in November 2020, Good Vibes is on a mission to liberate true sexual satisfaction and enable a journey of happiness guided by one’s true pleasures.",
+            "Good Vibes focuses on creating a safe space and community to learn about sexual education in the Asian context and runs its own ecommerce store with a curated range of three beginner pleasure toys."
+        ]
     }
     ,
     "9d51a42d-a461-4bd2-aa76-afc9c972062f":{
         title:"Shruti Dwivedi",
-        subtitle:"Founder",
+        subtitle:"Founder & CEO",
         info:"Dear Doc",
         personalLink:"https://www.linkedin.com/in/shruti-dwivedi1/",
-        // imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Lily Wu.jpeg",
-        // imgFull:"/assets/images/speakers/2022/women/Lily Wu.jpeg",
-        // description:[
-        //     "Lily Wu is currently the Startup Partner Lead, SEA at Stripe. Previously, she was immersed in the startup world where she bootstrapped two 7-figure businesses from the ground up. She expanded her 2nd startup, Austern International across APAC, US and Europe, in which she exited in 2018. She then went to become the Head of Programs for NewCampus, a Series A edutech startup based in Singapore as well as program managed H2 Ventures' accelerator program- Australia's largest fintech, big data and AI accelerator. ",
-        //     "She is the founding ambassador of Future Females Singapore, a global organisation dedicated to helping female entrepreneurs get the resources and connections they need to succeed and often runs design thinking workshops for VCs and companies across APAC.",
-        //     "Fun fact, she is also an illustrator, published author and has a black belt in Japanese martial arts, Taido."
-        // ]
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/Shruti Dwivedi - Photo.png",
+        imgFull:"/assets/images/speakers/2022/women/Shruti Dwivedi - Photo.png",
+        description:[
+            "Shruti is the Founder & CEO of Dear Doc, a digital health platform that's making access to sensitive female healthcare convenient, discreet, affordable, and judgement-free.",
+            "Women can now consult female doctors, and get their medications, refills, and lab tests delivered to their doorstep, all from the comfort and privacy of their homes!",
+            "Shruti worked closely in the women's health in Asia for around 10 years and felt deeply passionate about addressing the gaps that exist in this space. She left her coporate job to pursue her passion and launched Dear Doc soon after the Covid-19 outbreak in 2020."
+        ]
+    }
+    ,
+    "06eaf511-b2bf-41cc-8883-975b22146fdb":{
+        title:"Stephanie Phua",
+        subtitle:"Founder & CEO",
+        info:"Duo Studio",
+        personalLink:"https://www.linkedin.com/in/stephua/",
+        imgsrc:"/assets/images/speakers/2022/1_1 Formatted/steph_phua.jpeg",
+        imgFull:"/assets/images/speakers/2022/women/steph_phua.jpeg",
+        description:[
+            "Stephanie Phua is the CEO of Duo Studio, a social media marketing agency.",
+            "Having had hands-on experience in the industry while it was in its infancy, Stephanie was exposed to managing social media campaigns for local, regional and global clients. Today, Stephanie is focused on helping brands and creators navigate the rapidly evolving social media marketing landscape in Southeast Asia.",
+            "Stephanie drives Duo Studio’s emphasis on creative and data-driven content strategies; the agency has serviced clients such as Disney, Uniqlo, American Express, Kao, F&N and more."
+        ]
     }
     ,
     "b82a940d-d656-43d2-8142-dddcababf6b3":{

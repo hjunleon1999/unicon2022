@@ -21,6 +21,9 @@ export let agendaConsts_kv = {
         "setting":"physical",
         "o_venue":"Gather",
         "p_venue":"Treetop @ *SCAPE",
+        "speakerIds":[
+            "08076c07-0770-4b1a-b5e6-f06afdd867c2"
+        ]
     },
     "e2e63c55-c97e-4a3b-8a2b-44582b0de3e2":{
         "startTime":"Jan 15, 2022 10:00:00",
@@ -51,7 +54,8 @@ export let agendaConsts_kv = {
             "7471cfa0-bbc6-4122-ad6c-32cf1b2a4f40",
             "10e6051f-eb21-4da6-b4a3-1d27218019bf",
             "334aacc6-cc7e-47f9-b541-59c84256e941",
-            "01e8cfb2-8d05-4056-80fb-0e9f2d14857a"
+            "01e8cfb2-8d05-4056-80fb-0e9f2d14857a",
+            "937ffda3-bf24-45c2-8c4e-43814d5f3ca6"
         ]
     },
     "3f863d76-0d18-4181-944b-9d357da161a8":{
@@ -65,7 +69,8 @@ export let agendaConsts_kv = {
         "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "c6051b2e-c51e-4bed-936a-4d57d7ad98f2",
-            "1c790ec9-c03f-4a1f-96f5-eb47db8db5ae"
+            "1c790ec9-c03f-4a1f-96f5-eb47db8db5ae",
+            "acb70642-d0ae-4398-987c-0bb46f60f21c"
         ]
     },
     "c1cdf9b1-86ff-4d38-8c51-9b6a343e4e05":{
@@ -100,7 +105,9 @@ export let agendaConsts_kv = {
         "speakerIds":[
             "a9b79272-0f9b-4224-893d-5bd4b0c73112",
             "6e50ba82-3d0d-4e25-9d58-997da107bf9f",
-            "7527cedb-f803-4234-8b83-9eb4cf7b0c87"
+            "7527cedb-f803-4234-8b83-9eb4cf7b0c87",
+            "a9312074-5dba-4afc-902f-76e3da7cfe1a",
+            "8e4b684e-c725-4cec-a975-4465d77600b1"
         ]
     },
     "1832b2f1-d586-47a1-98e8-9f368dd396e6":{
@@ -114,7 +121,8 @@ export let agendaConsts_kv = {
         "p_venue":"Treetop @ *SCAPE",
         "speakerIds":[
             "13476b80-93a5-48a8-8a6e-8dfe21091511",
-            "9d51a42d-a461-4bd2-aa76-afc9c972062f"
+            "9d51a42d-a461-4bd2-aa76-afc9c972062f",
+            "06eaf511-b2bf-41cc-8883-975b22146fdb"
         ]
     },
     "1c110a57-7fa3-47d0-ae08-5ef28793985d":{
@@ -284,7 +292,7 @@ export let agendaConsts_kv = {
         "endTime":"Jan 16, 2022 16:30:00",
         "category":"TigerLaunch",
         "topic":"TigerLaunch results & UNICON Closing",
-        "setting":"physical",
+        "setting":"online",
         "venue":"zoom link (tbc)"
     }
   }
