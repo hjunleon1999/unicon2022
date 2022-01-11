@@ -6,6 +6,7 @@ import ImageCard from "../../components/image-card/ImageCard";
 import ShootingStars from "../../components/shooting-stars/ShootStars";
 import OurReach from "./reach/OurReach";
 import Footer from "./footer/Footer";
+import Credit from "./credits/Credits";
 import {
   globalOutreachTxt,
   wordClassText,
@@ -40,28 +41,12 @@ export default function Home({ win_width, win_height, is_mobile }) {
 
   const parallaxRef = useRef(null); //true
   const [isParallaxMounted, setParallaxMounted] = useState(false);
-  const numOfPages = is_mobile ? 7.925 : 6.4;
+  const numOfPages = is_mobile ? 8.4 : 8.4;  //6.4
   console.log(`numOfPages: ${numOfPages}`);
-  // const [playCanvas,setPlayCanvas] = useState(false)
-  // const p_observer = new IntersectionObserver(
-  //   ([entry]) => setParallaxMounted(entry.isParallaxMounted)
-  // )
-  // useEffect(() => {
-  //   // console.log(parallaxRef)
-  //   if (!parallaxRef.current) return; //|| !parallaxRef.current.container
-  //   parallaxRef.current.onscroll = onScroll;
-  // });
   const calc = (x, y) => [
     x - window.innerWidth / 2,
     y - window.innerHeight / 2,
   ];
-  // const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-
-  // These are global variables idw to force re-render
-  // let playCanvas = false;
-  let canvasOffsetTop = 0;
-  let shootStarCanvas = null;
-  // let isParallaxContainer = false//useOnScreen(parallaxRef);
 
   const ticket_url = "https://www.tickettailor.com/events/nusentrepreneurshipsociety/602704"
   const FrontPanel = () => {
@@ -90,11 +75,6 @@ export default function Home({ win_width, win_height, is_mobile }) {
   };
 
   const DisplayCountdown = () => {
-    // let curTime = countdown;
-    // console.log(countdown)
-    // let curTime = deadline - Date.now()
-    // const dateObj = new Date();
-    // dateObj.setTime(countdown);
     const [countdown, setCountDown] = useState((deadline - Date.now()) / 1000);
     useEffect(() => {
       const timer = setTimeout(() => {
@@ -137,74 +117,9 @@ export default function Home({ win_width, win_height, is_mobile }) {
       </div>
     );
   };
-
-  // const bkgroundMouseMove = (e) => {
-  //   var movementStrength = 25;
-  //   var height = movementStrength / window.innerHeight;
-  //   var width = movementStrength / window.innerWidth;
-  //   // let elem = e.target
-  //   // console.log(elem)
-  //   var pageX = e.pageX - (window.innerWidth / 2);
-  //   var pageY = e.pageY - (window.innerHeight / 2);
-  //   var newvalueX = width * pageX * -1 - 25;
-  //   var newvalueY = height * pageY * -1 - 50;
-  //   // console.log(newvalueX+"px "+newvalueY+"px")
-  //   // console.log(bkgroundPos)
-  //   setBkgroundPos(`translate3d(${newvalueX}px, ${newvalueY}px, 1em)`)
-  // };
-
   const resetbkgroundTransforms = (e) => {
-    // setBkgroundPos(`translate3d(0px, 0px, 1em)`)
     set({ xy: [0, 0] });
   };
-
-  // const setCanvasPlay = () => {
-  //   if (!shootStarCanvas){
-  //     shootStarCanvas = document.querySelector('.shootingCanvas')
-  //   }
-  //   // console.log(`canvasOffsetTop: ${canvasOffsetTop}`)
-  //   // console.log(`canvas scrollTOP: ${shootStarCanvas.scrollTop}`)
-  //   canvasOffsetTop = shootStarCanvas.getBoundingClientRect().y
-  //   console.log(`canvasOffsetTop: ${canvasOffsetTop}`)
-  //   console.log(`playCanvas: ${playCanvas}`)
-  //   // console.log(shootStarCanvas.getBoundingClientRect())
-  //   console.log(shootStarCanvas)
-  //   if (canvasOffsetTop < 400){
-  //     // playCanvas = true
-  //     setPlayCanvas(true)
-  //   } else {
-  //     // playCanvas = false
-  //     setPlayCanvas(false)
-  //   }
-  // }
-
-  // const isVisible = (e) => {
-
-  // }
-
-  // const getScrollE = (e) => {
-  //   // console.log(e);
-  //   let curScroll = e.target.scrollTop;
-  //   setCurScroll(curScroll)
-  //   console.log(`curScroll: ${curScroll}`);
-  //   // setCanvasPlay()
-  // };
-
-  // const throttleScrollHandler = useMemo(() => throttle(getScrollE, 200), []);
-
-  // useEffect(() => {
-  //   let parallaxContainer = document.querySelector(".parallax-scroll-hook");
-  //   // console.log(parallaxContainer);
-  //   if (!parallaxContainer) return;
-  //   parallaxContainer.addEventListener("scroll", throttleScrollHandler);
-  //   // isParallaxContainer = true
-  // }, []);
-
-  // onMouseMove={(e)=> bkgroundMouseMove(e)} onMouseLeave={(e)=> resetbkgroundTransforms(e)}
-
-  // https://codesandbox.io/embed/r5x34869vq
-  // Program out of focus also
-  //5.25
   return (
     <>
       <div
@@ -214,8 +129,6 @@ export default function Home({ win_width, win_height, is_mobile }) {
           background: "#171C1D",
           transform: bkgroundPos,
         }}
-        // onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-        // onMouseLeave={(e) => resetbkgroundTransforms(e)}
       >
         <Topbar
           style={{
@@ -306,7 +219,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
           <ParallaxLayer
             offset={1}
             speed={1}
-            factor={5}
+            factor={4}
             className="particleBackground"
           >
             {!is_mobile && (
@@ -590,7 +503,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
           </ParallaxLayer>
 
           <ParallaxLayer
-            offset={is_mobile ? 6.7 : 4.7}
+            offset={is_mobile ? 6.7 : 6.7}
             speed={0}
             factor={0.3}
             style={{
@@ -599,21 +512,21 @@ export default function Home({ win_width, win_height, is_mobile }) {
           />
           <ParallaxLayer
             offset={is_mobile ? 4 : 3}
-            speed={0.75}
+            speed={1.5}
             factor={1}
             onClick={() => parallaxRef.current.scrollTo(5)}
           >
             <OurReach is_mobile={is_mobile} />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile ? 7 : 5}
+            offset={is_mobile ? 7 : 7}
             speed={0}
             factor={1}
             style={{
               background: "linear-gradient(#0B0F1D,75%,#D43924)",
             }}
           ></ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 6.95 : 4.95} speed={0.3}>
+          <ParallaxLayer offset={is_mobile ? 6.95 : 6.95} speed={0.3}>
             <img
               src={"/assets/images/satellite.png"}
               style={{
@@ -624,7 +537,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
             />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile ? 6 : 4}
+            offset={is_mobile ? 5.5 : 4}
             speed={1.5}
             factor={1}
             className="whatsNew"
@@ -660,19 +573,26 @@ export default function Home({ win_width, win_height, is_mobile }) {
               competition is surely not to be missed!
             </div>
           </ParallaxLayer>
-          
           <ParallaxLayer
-            offset={is_mobile ? 7 : 5}
+            offset={is_mobile ? 6 : 5}
+            speed={1.5}
+            factor={is_mobile?1:2}
+            className="credit_wrap"
+          >
+            <Credit is_mobile={is_mobile} />
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={7}
             speed={0}
             factor={1}
             className="shootingCanvas"
           >
             {!is_mobile && <ShootingStars nums={10} />}
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 7 : 5} speed={0} factor={1}>
+          <ParallaxLayer offset={is_mobile ? 7 : 7} speed={0} factor={1}>
             <PulseStars stylelist={starStyles} is_mobile={is_mobile} />
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 7.6 : 5.6} speed={0.5}>
+          <ParallaxLayer offset={is_mobile ? 7.6 : 7.6} speed={0.5}>
             {!is_mobile && (
               <img
                 src={"/assets/images/backClouds.png"}
@@ -680,7 +600,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               />
             )}
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 7.5 : 5.5} speed={0.75}>
+          <ParallaxLayer offset={is_mobile ? 7.5 : 7.5} speed={0.75}>
             {!is_mobile && (
               <img
                 src={"/assets/images/frontClouds.png"}
@@ -688,7 +608,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               />
             )}
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 7.3 : 5.3} speed={1}>
+          <ParallaxLayer offset={is_mobile ? 7.3 : 7.3} speed={1}>
             <img
               src={"/assets/images/unicornRocket.png"}
               style={{
@@ -700,7 +620,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
             />
           </ParallaxLayer>
           <ParallaxLayer
-            offset={is_mobile ? 7.02 : 5.02}
+            offset={is_mobile ? 7.02 : 7.02}
             speed={1.5}
             onClick={() => parallaxRef.current.scrollTo(0)}
           >
@@ -713,7 +633,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
               }}
             />
           </ParallaxLayer>
-          <ParallaxLayer offset={is_mobile ? 7.3 : 5.3} speed={2}>
+          <ParallaxLayer offset={is_mobile ? 7.3 : 7.3} speed={2}>
             <img
               src={"/assets/images/uniconTitle2.png"}
               style={{
@@ -730,7 +650,7 @@ export default function Home({ win_width, win_height, is_mobile }) {
             factor={1}
             style={{ background: "#D43924"}} /> */}
           <ParallaxLayer
-            offset={is_mobile ? 7.925 : 5.925}
+            offset={is_mobile ? 7.925 : 7.925}
             speed={is_mobile ? 0 : 0.75}
             factor={is_mobile ? 0.8 : 1}
             // className="parallaxFooter"

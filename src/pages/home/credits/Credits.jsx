@@ -1,160 +1,95 @@
-import "./OurReach.scss";
+import "./Credits.scss";
 import React, { useRef, useState, useEffect } from "react";
+import { SPONSOR_DATA, PARTNER_DATA, IMG_DIR } from "./CreditsConstants";
 
-let statsList = [
-  {
-    statsIcon: "/assets/images/attendees.png",
-    statsLabel: "ATTENDEES",
-    statsInfo: 424,
-  },
-  {
-    statsIcon: "/assets/images/countriesRepresent.png",
-    statsLabel: "COUNTRIES REPRESENTED",
-    statsInfo: 5,
-  },
-  {
-    statsIcon: "/assets/images/tertiaryEdu.png",
-    statsLabel: "TERTIARY EDUCATION INSTITUTIONS",
-    statsInfo: 15,
-  },
-  {
-    statsIcon: "/assets/images/speakers.png",
-    statsLabel: "SPEAKERS",
-    statsInfo: 30,
-  },
-  {
-    statsIcon: "/assets/images/sponsorsAndPartners.png",
-    statsLabel: "SPONSORS & PARTNERS",
-    statsInfo: 10,
-  },
-];
-
-let statsInfos2021 = [424, 5, 15, 30, 10];
-let statsInfos2022 = [600, 12, 20, 40, 20];
-
-export default function OurReach({is_mobile}) {
-  const [year, toggleYear] = useState(true);
-  const [curYear, setCurYear] = useState(2021);
-  const [prevStats, setPrevStats] = useState([0,0,0,0,0]);
-  const [curStats, setCurStats] = useState(statsInfos2021);
-//   let statinfoEls = [];
-useEffect(() => {
-  if (is_mobile){
-    setCurYear(2022);
-    setPrevStats(statsInfos2021)
-    setCurStats(statsInfos2022)
-  }
-},[]);
-  useEffect(() => {
-    if (!is_mobile){
-      const timer = setTimeout(() => {
-        toggleYear(!year);
-        //   let activeList;
-        if (year) {
-          setCurYear(2021);
-          setPrevStats(statsInfos2022)
-          setCurStats(statsInfos2021)
-        } else {
-          setCurYear(2022);
-          setPrevStats(statsInfos2021)
-          setCurStats(statsInfos2022)
-        }
-      }, 3000);
-
-      return () => clearTimeout(timer);
+const processData = (data, attr) => {
+  // let test = data[attr];
+  console.log(processData);
+  for (let attri of data) {
+    console.log(attri[attr]);
+    for (let miao of attri[attr]) {
+      console.log(miao);
+      console.log(miao["img"]);
+      miao["img"] = `${IMG_DIR}${miao["img"]}`;
+      console.log(miao["img"]);
     }
-  });
-
-  
-  const animateValue = (setState, start, end, duration) => {
-    // const step = (timestamp) => {
-    //   if (!startTimestamp) startTimestamp = timestamp;
-    //   const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    //   setState(Math.floor(progress * (end - start) + start))
-    //   if (progress < 1) {
-    //     window.requestAnimationFrame(step);
-    //   } 
-    // };
-    let startTimestamp = null;
-    var dt = 1000 / 30; // 60fps  1000 / 60;
-    var timeTarget = Date.now();
-    // let timestamp = Date.now() 
-    function render(){
-      
-      let timestamp = Date.now() 
-      if ( Date.now() >= timeTarget) { 
-        if (!startTimestamp) startTimestamp = Date.now();
-        // console.log("timestamp - timeTarget")
-        // console.log(timestamp - startTimestamp)
-        // startTimestamp = timeTarget;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        // console.log(`progress: ${progress}`)
-        setState(Math.floor(progress * (end - start) + start))
-        // if (progress < 1) {
-        //   window.requestAnimationFrame(render);
-        // } 
-        timeTarget += dt;
-        if (Date.now() >= timeTarget) {
-          timeTarget = Date.now();
-          // startTimestamp = null;
-        }
-      }
-      window.requestAnimationFrame(render);
-    }
-
-    // window.requestAnimationFrame(render);
-    render()
-    
-  };
-  const Ani_Stat = ({start,end}) => {
-    // const [curStat, setCurStat] = useState(start)
-    // console.log("START END")
-    // console.log(start, end)
-    const [displayStat, setDisplayStat] = useState(start)
-    useEffect(()=>{
-      // console.log("ANIMATING VALUE")
-      animateValue(setDisplayStat, start, end, 1000)
-    },[])
-    return(
-      <>
-        {displayStat}
-      </>
-    )
+    console.log(attri);
   }
 
-  const Stats = ({ statsIcon, start, end, statsLabel }) => {
-    return (
-      <div className="stats">
-        <div className="statsIcon">
-          <img
-            src={statsIcon}
-            style={{
-              display: "block",
-              width: "40%",
-            }}
-          />
-        </div>
-        <div className="statsLabel">{statsLabel}</div>
-        <div className="statsInfo"><Ani_Stat start={start} end = {end}/></div>
-      </div>
-    );
-  };
-  //{year?"":"+"}
+  return data;
+};
+
+export default function Credit({ is_mobile }) {
+  // let p_d = processData(PARTNER_DATA,"partners");
+  console.log("Credit");
+  // let s_d = processData(SPONSOR_DATA, "sponsors");
+  // console.log(s_d)
+  console.log(is_mobile);
   return (
-    <div className="ourReach">
-      <div className="title">Our Milestones</div>
-      <div className="subtitle">{curYear}</div>
-      <div className={`statsWrap ${is_mobile?"mobile":""}`}>
-        {statsList.map((stat,index) => (
-          <Stats
-            statsIcon={stat.statsIcon}
-            stat = ""
-            start={prevStats[index]}
-            end={curStats[index]}
-            statsLabel={stat.statsLabel}
-          />
-        ))}
-      </div>
+    <div className={`credits ${is_mobile ? "mobile" : ""}`}>
+      <div className="title">Sponsors</div>
+      {SPONSOR_DATA.map((level, idx1) => (
+        <div className="credit_wrap">
+          <div
+            className="subtitle"
+            style={{
+              color: level["hoverColor"],
+            }}
+          >
+            {level["level"]}
+          </div>
+          <div className={`imgContainer`}>
+            {level["sponsors"].map((sponsor, idx2) => (
+              <div className={`imgWrap ${sponsor["importance"]}`}>
+                <div
+                  style={{
+                    backgroundColor: sponsor["BKGROUND"],
+                    boxShadow: `5px 6px 8px ${level["hoverColor"]}`,
+                  }}
+                >
+                  <a
+                    href={sponsor["link"]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={IMG_DIR + sponsor["img"]} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+      {!is_mobile && (
+        <>
+          <div className="title">Partners</div>
+          {PARTNER_DATA.map((level, idx1) => (
+            <div className="credit_wrap">
+              <div className="subtitle">{level["level"]}</div>
+              <div className={`imgContainer`}>
+                {level["partners"].map((sponsor, idx2) => (
+                  <div className={`imgWrap ${sponsor["importance"]}`}>
+                    <div
+                      style={{
+                        backgroundColor: sponsor["BKGROUND"],
+                        boxShadow: `5px 6px 8px ${level["hoverColor"]}`,
+                      }}
+                    >
+                      <a
+                        href={sponsor["link"]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img src={IMG_DIR + sponsor["img"]} />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }
